@@ -1,0 +1,49 @@
+.topbar {
+  border-bottom: 1px solid #ddd;
+}
+.navbar {
+  margin-bottom: 0px;
+}
+
+.parallax-header {
+  min-height: 300px;
+  position: relative;
+  margin-bottom: 20px;
+  border: 1px solid purple;
+}
+
+.header-heading {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  text-align: center;
+}
+
+.start-button-wrap {
+  text-align: center;
+}
+
+.portfolio-container > h2,
+.portfolio-container > p {
+  text-align: center;
+}
+.portfolio-item-card {
+  border: 1px solid #eee;
+  margin-bottom: 10px;
+}
+.card-thumb {
+  background-color: #60D0FE;
+  min-height: 150px;
+}
+.card-title {
+  padding: 4px 8px;
+  font-size: 1.4em;
+  font-weight: lighter;
+  line-height: 1.2em;
+}
+.card-category {
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 4px 8px;
+}

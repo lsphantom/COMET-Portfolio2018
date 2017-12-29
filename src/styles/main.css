@@ -1,17 +1,36 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:300, 400, 700');
+body {
+  color: #444;
+  font-family: 'Lato', Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+background: #ffffff;
+background: -moz-radial-gradient(center, ellipse cover, #ffffff 0%, #f6f6f6 47%, #ededed 100%) fixed;
+background: -webkit-radial-gradient(center, ellipse cover, #ffffff 0%,#f6f6f6 47%,#ededed 100%) fixed;
+background: radial-gradient(ellipse at center, #ffffff 0%,#f6f6f6 47%,#ededed 100%) fixed;
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed',GradientType=1 );
+}
+
 .topbar {
   border-bottom: 1px solid #ddd;
+  background-color: #fff;
 }
 .navbar {
   margin-bottom: 0px;
 }
 .navbar-nav > li > a {
   font-weight: bold;
+  font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+	font-size: 13px;
 }
 .navbar-nav > li.active > a {
   color: #444;
 }
 .navbar-nav > li > a {
   color: #888;
+}
+.navbar-toggle .icon-bar {
+	background-color: #0265bd;
 }
 .comet-logo {
   width: 96px;
@@ -37,7 +56,7 @@
   text-align: center;
   padding: 30px;
   font-size: 24px;
-  font-weight: light;
+  font-weight: 300;
   text-shadow: 2px 2px 2px #000;
   color: #fff;
 }
@@ -45,7 +64,17 @@
 .start-button-wrap {
   text-align: center;
 }
+.start-button-wrap a {
+	padding: 5px 80px;	
+}
+.btn-primary {
+	background-color: #0265bd;
+}
 
+.portfolio-heading {
+	font-size: 1.2em;
+	font-weight: 300;
+}
 .portfolio-container > h2,
 .portfolio-container > p {
   text-align: center;
@@ -53,8 +82,8 @@
 .portfolio-item-card {
   /*border: 1px solid #eee;*/
   margin-bottom: 10px;
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
   box-shadow: 2px 2px 10px rgba(0,0,0, 0.15);
 }
 .card-thumb {
@@ -62,18 +91,91 @@
   background-position: center;
   background-repeat: no-repeat;
   min-height: 150px;
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  position: relative;
+}
+
+.card-thumb-inner {
+  top: 0;  
+  bottom: 0;
+  right: 0;
+  left: 0;
+  position: absolute;
+  padding: 10px;
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
+  background-color: rgba(36,129,201,0.8);
+  transition: all ease-in-out 0.25s;
+  opacity: 0;
+}
+
+a.card-thumb-wrap-link:hover .card-thumb-inner {
+  opacity: 1;
+}
+
+.card-objectives-heading {
+  color: #fff;
+  font-weight: bold;
+}
+.card-objectives-body {
+	color: #fff;
+	font-weight: 300;
+	line-height: 1.2em;
 }
 .card-title {
   padding: 6px 8px;
-  font-size: 1.3em;
   font-weight: lighter;
   line-height: 1.2em;
-  min-height: 90px;
+  min-height: 80px;
+}
+.card-title a {
+	color: #333;
 }
 .card-category {
   text-transform: uppercase;
   font-weight: bold;
   padding: 10px 8px;
+}
+
+
+/* COMET ITEM FULL PAGE DETAILS */
+.parallax-header {
+	border-bottom: 6px solid #0265bd;
+}
+.comet-item {
+	padding-bottom: 20px;
+}
+.comet-item-category h2 {
+	font-size: 1.2em;
+	margin-bottom: 4px;
+}
+.comet-item-title h1 {
+	margin-top: 4px;
+	color: #222;
+	font-weight: 300;
+}
+.comet-item-objectives h3,
+.comet-item-extra h3 {
+	font-size: 1.1em;
+	font-weight: 700;
+	color: #222;
+}
+#comet-item-content {
+	background-color: #fff;
+	min-height: 300px;
+}
+
+
+.about-container > h2 {
+	text-align: center;
+}
+
+
+.contact-container > h2 {
+	text-align: center;
+}
+.contact-container div p {
+	font-size: 16px;
+	color: #555;
 }

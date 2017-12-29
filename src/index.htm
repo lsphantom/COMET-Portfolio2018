@@ -20,7 +20,7 @@
   <nav class="navbar">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#comet-navbar" aria-expanded="false" aria-controls="navbar">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -30,7 +30,7 @@
       	<img class="comet-logo" src="media/comet-blacktext.png" alt="COMET" >
       </a>
     </div>
-    <div class="navbar-collapse collapse">
+    <div id="comet-navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="work.htm">Our Work</a></li>
         <li><a href="about.htm">About Us</a></li>
@@ -45,6 +45,11 @@
 
   <!-- Parallax background header -->
   <section class="parallax-header row">
+  <div class="video-wrap"  style="overflow: hidden; max-height: 300px;">
+   <video class="home-parallax-video" autoplay loop muted>
+   <source src="media/samplevid.mp4" type="video/mp4">
+   </video>
+  </div>
     <div class="container header-heading">
       The COMET Program:<br>
       Geoscience training solutions that work.

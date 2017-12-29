@@ -10,6 +10,8 @@
 
 <!-- DEPENDENCIES -->
 <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../node_modules/scrollmagic/scrollmagic/minified/ScrollMagic.min.js"></script>
+<!--<script src="../node_modules/scrollmagic/scrollmagic/minified/plugins/debug.addIndicators.min.js"></script>-->
 <link rel="stylesheet" type="text/css" href="../node_modules/bootstrap/dist/css/bootstrap.min.css" >
 <link rel="stylesheet" type="text/css" href="styles/main.css" >
 
@@ -41,7 +43,7 @@
   </nav>
 </div>
 
-<div class="container-fluid">
+<div id="first-trigger" class="container-fluid">
 
   <!-- Parallax background header -->
   <section class="parallax-header row">
@@ -68,19 +70,20 @@
   <div class="intro-text">
     <p>At COMET, we value scientific accuracy, measurable performance improvement, learner engagement, and learning retention. Our team of instructional designers, scientists, graphic artists, and web developers is committed to helping you refine your training objectives and produce lessons that help your learners meet them.</p>
     <div class="start-button-wrap">
-      <a href="work.htm" class="btn btn-primary">See our work</a>
+      <a id="start-button" href="work.htm" class="btn btn-primary">See our work</a>
     </div>
   </div>
 </div>
 
 
 
-
+<div id="additional-padding" class="container"></div>
 
 
 
 
 <!-- LOAD ADDITIONAL SCRIPTS -->
 <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="js/defaults.js"></script>
 </body>
 </html>

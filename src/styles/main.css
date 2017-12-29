@@ -61,6 +61,18 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
   color: #fff;
 }
 
+.intro-text,
+.portfolio-item-card {
+	opacity: 0;
+	transform: translateY(40px);
+	transition: all 0.8s ease-out;
+}
+.intro-text.fade-in,
+.portfolio-item-card.fade-in {
+	opacity: 1;
+	transform: translateY(0);
+}
+
 .start-button-wrap {
   text-align: center;
 }
@@ -69,6 +81,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 }
 .btn-primary {
 	background-color: #0265bd;
+}
+
+#additional-padding {
+  min-height: 200px;
 }
 
 .portfolio-heading {

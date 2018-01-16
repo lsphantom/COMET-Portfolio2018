@@ -1,23 +1,36 @@
-@import url('https://fonts.googleapis.com/css?family=Lato:300, 400, 700');
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700,900');
 body {
   color: #444;
   font-family: 'Lato', Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 400;
   font-size: 14px;
 background: #ffffff;
-background: -moz-radial-gradient(center, ellipse cover, #ffffff 0%, #f6f6f6 47%, #ededed 100%) fixed;
-background: -webkit-radial-gradient(center, ellipse cover, #ffffff 0%,#f6f6f6 47%,#ededed 100%) fixed;
-background: radial-gradient(ellipse at center, #ffffff 0%,#f6f6f6 47%,#ededed 100%) fixed;
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed',GradientType=1 );
+background: -moz-radial-gradient(center, ellipse cover, #ededed 0%, #f6f6f6 47%, #ffffff 100%) fixed;
+background: -webkit-radial-gradient(center, ellipse cover, #ededed 0%,#f6f6f6 47%,#ffffff 100%) fixed;
+background: radial-gradient(ellipse at center, #ededed 0%,#f6f6f6 47%,#ffffff 100%) fixed;
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ededed', endColorstr='#ffffff',GradientType=1 );
 }
 
 .topbar {
   border-bottom: 1px solid #ddd;
   background-color: #fff;
 }
-.navbar {
-  margin-bottom: 0px;
+/* .navbar {
+  margin-bottom: 0px; 
+} */
+
+
+
+/* SQ added */
+
+.portfolio-navbar {
+	margin-bottom: 0px;
 }
+
+/* END of SQ added */
+
+
+
 .navbar-nav > li > a {
   font-weight: bold;
   font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
@@ -28,7 +41,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 }
 .navbar-nav > li > a {
   color: #888;
-}
+} 
+
 .navbar-toggle .icon-bar {
 	background-color: #0265bd;
 }
@@ -47,6 +61,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+/* I think we need to create a parallax group div, so that the parallax image layer doesn't have the depth of the entire page. Perhaps the "Parallax sections" content here can help: https://keithclark.co.uk/articlaes/pure-css-parallax-websites/ */
 
 .header-heading {
   position: absolute;
@@ -157,29 +173,41 @@ a.card-thumb-wrap-link:hover .card-thumb-inner {
 
 /* COMET ITEM FULL PAGE DETAILS */
 .parallax-header {
-	border-bottom: 6px solid #0265bd;
+	border-bottom: 12px solid #0265bd; /* was 6px */
 }
 .comet-item {
 	padding-bottom: 20px;
 }
 .comet-item-category h2 {
-	font-size: 1.2em;
+	font-family: 'Lato', Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+	font-size: 1em; /* was 1.2 em */
 	margin-bottom: 4px;
 }
 .comet-item-title h1 {
 	margin-top: 4px;
 	color: #222;
+	font-family: 'Lato', Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-weight: 300;
 }
 .comet-item-objectives h3,
-.comet-item-extra h3 {
-	font-size: 1.1em;
+.comet-item-extra h3  {
+	font-family: 'Lato', Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 1.3em; /* was 1.1 em */
 	font-weight: 700;
 	color: #222;
+	margin-bottom: 0.2em;
+}
+.comet-item-objectives p,
+.comet-item-extra p {
+	font-family: 'Lato', Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 1.3em;
+	font-weight: 300;
 }
 #comet-item-content {
 	background-color: #fff;
 	min-height: 300px;
+	padding-top: 15px;
 }
 
 
@@ -187,11 +215,62 @@ a.card-thumb-wrap-link:hover .card-thumb-inner {
 	text-align: center;
 }
 
+/* added by SQ */
+
+.about-text > h3 {
+	font-size: 1.1em; 
+	font-weight: 700;
+	margin-bottom: 0.2em;
+}
+.about-text > p,ul {
+	font-size: 1.1em; 
+	font-weight: 300;
+}
+
+/* end add SQ */
 
 .contact-container > h2 {
 	text-align: center;
 }
 .contact-container div p {
-	font-size: 16px;
-	color: #555;
+	font-size: 1.1em; 
+	font-weight: 300;
+	/* font-size: 16px; */
+	/* color: #555; */
+}
+
+/**================  SQ added - responsive content wrapper - YouTube videos and drill exercise =============================**/
+
+.iframeWrapper {
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
+	padding-top: 25px;
+	height: 0;
+	margin-top: 30px;
+}
+
+.iframeWrapper iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border:none;
+}
+
+.drillWrapper {
+	position: relative;
+	padding-bottom: 100%; /* 16:9 */
+	padding-top: 0px;
+	height: 0;
+	margin-top: 30px;
+}
+
+.drillWrapper iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border:none;
 }

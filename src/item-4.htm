@@ -13,12 +13,45 @@
 <script src="../node_modules/scrollmagic/scrollmagic/minified/ScrollMagic.min.js"></script>
 <link rel="stylesheet" type="text/css" href="../node_modules/bootstrap/dist/css/bootstrap.min.css" >
 <link rel="stylesheet" type="text/css" href="styles/main.css" >
+	
+<!-- MODULE-SPECIFIC DEPENDENCIES -->
+	
+<link rel="stylesheet" type="text/css" media="screen" href="samples/bom_climate/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" media="screen" href="samples/bom_climate/jquery/jquery-ui.min.css">
+<link rel="stylesheet" type="text/css" media="screen" href="samples/bom_climate/css/meted-base.css">
+<link rel="stylesheet" type="text/css" media="screen" href="samples/bom_climate/css/module-custom.css">
+<link rel="stylesheet" type="text/css" media="print" href="samples/bom_climate/css/module-print.css">
+<script type="text/javascript" src="samples/bom_climate/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="samples/bom_climate/jquery/jquery-ui.min.js"></script>
+<script type="text/javascript" src="samples/bom_climate/jquery/jquery-plugins.min.js"></script>
+<script type="text/javascript" src="samples/bom_climate/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="samples/bom_climate/modernizr/modernizr.min.js"></script>
+<link rel="stylesheet" type="text/css" media="screen" href="samples/bom_climate/jquery/meted-player/css/meted-player.min.css">
+<script src="samples/bom_climate/jquery/meted-player/js/meted-player.min.js"></script>
+<link rel="stylesheet" type="text/css" media="screen" href="samples/bom_climate/jquery/apps/fancybox/fancybox.min.css">
+<script type="text/javascript" src="samples/bom_climate/jquery/apps/fancybox/fancybox.min.js"></script>
+<script type="text/javascript" src="samples/bom_climate/jquery/apps/elevatezoom/elevatezoom.min.js"></script>
+<script type="text/javascript" src="samples/bom_climate/jquery/apps/drag/drag.js"></script>
+<script type="text/javascript" src="samples/bom_climate/jquery/apps/draw/draw.js"></script>
+<link rel="stylesheet" type="text/css" media="screen" href="samples/bom_climate/jquery/apps/image-sweep/image-sweep.css">
+<script type="text/javascript" src="samples/bom_climate/jquery/apps/image-sweep/image-sweep.js"></script>
+<script type="text/javascript" src="samples/bom_climate/jquery/defaults.js"></script>
+	
+<!-- PRESET OVERRIDES =============================-->
+<script type="text/javascript">
+	var printVersion = false; // Specify Print View.  [true] for PRINT, or [false] for DYNAMIC content.
+  </script>	
+	
+	
 
 </head>
 <body>
 <div class="container-fluid topbar">
   <!-- Top Navbar -->
-  <nav class="navbar">
+  <!-- SQ: <nav class="navbar"> -->
+<nav class="portfolio-navbar">
+	
+	
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#comet-navbar" aria-expanded="false" aria-controls="navbar">
@@ -44,7 +77,7 @@
 
 <div class="container-fluid">
   <!-- Parallax background header -->
-  <section class="parallax-header row" style="background-image: url('media/bom_climate/birchupApril2016.jpg');"></section>
+  <section class="parallax-header row" style="background-image: url('media/bom_climate_header.jpg');"></section>
 </div>
 
 <div class="container comet-item">
@@ -59,12 +92,11 @@
 
 <div class="comet-item-body">
 <div class="comet-item-objectives">
-	<h3>Training Objectives</h3>
-	<p>Describe the main climate drivers and their influence on the Australian region; interpret climate outlook maps for rainfall and temperature; and use the climate outlook maps and the past accuracy maps to inform decisions faced by climate-sensitive industries.</p>
+	<h3>About this project</h3>
+	<p>COMET designs interactive data viewers to facilitate pattern recognition. This <a href="https://www.meted.ucar.edu/training_module.php?id=1247">lesson</a> teaches learners to interpret climate outlook maps for rainfall and temperature, and use the maps to inform decisions faced by climate-sensitive industries. The viewer below allows learners to compare the influence of various climate drivers on Australia’s climate. They practice interpreting products and making decisions based on the information.</p>
 </div>
 <div class="comet-item-extra">
-	<h3>Solution</h3>
-	<p>This viewer allows learners to compare the influence of various climate drivers on Australia’s climate. They practice interpreting products and making decisions based on the information.</p>
+	<p></p>
 </div>
 </div>
 
@@ -74,10 +106,426 @@
 <!-- page sample -->
 <section id="comet-item-content" class="row">
 	<div class="container">
-		<h3>Visualization:</h3>
-		** ADD CONTENT HERE **
+		
+		<div id="page_3-5-0">
+        <h3>Data Viewer: Climate Drivers and Australian Climate</h3>
+        <p>Use the data viewer to answer the following questions.  For each question, select the climate driver and season referenced in the question, and then compare the differences in observed rainfall and minimum and maximum temperatures (TMin/TMax).</p>
+        
+<script type="text/javascript" src="samples/bom_climate/jquery/apps/bom-dataviewer/active-sweep.js"></script>      
+<div class="container-fluid" style="min-height:700px;">
+<div class="row bsi-controls">
+<form id="bsi-form">
+<div class="col-xs-6" style="background: #EDEDED;">
+<h6>Left Image</h6>
+<dl class="bsi-select-list">
+	<dt><label>Select Driver:</label></dt>
+    <dd>
+    <select name="ld">
+    	<option value="LN" selected>La Ni&ntilde;a</option>
+        <option value="EN">El Ni&ntilde;o</option>
+        <option value="IODN">IOD Negative</option>
+        <option value="IODP">IOD Positive</option>
+        <option value="LN-IODN">LN/IOD Negative</option>
+        <option value="EN-IODP">EN/IOD Positive</option>
+    </select>
+    </dd>
+    <dt><label>Select Variable:</label></dt>
+    <dd>
+    <select name="lv">
+    	<option value="_rain" selected>Rain</option>
+        <option value="_tmax">T Max</option>
+        <option value="_tmin">T Min</option>
+    </select>
+    </dd>
+    <dt><label>Select Season:</label></dt>
+    <dd>
+    	<select name="ls">
+        	<option value="_winter" selected>Winter</option>
+            <option value="_spring">Spring</option>
+            <option value="_summer">Summer</option>
+            <option value="_autumn">Autumn</option>
+        </select>
+    </dd>
+</dl>
+
+
+
+</div>
+
+<div class="col-xs-6" style="background: #D9D9D9">
+<h6>Right Image</h6>
+<dl class="bsi-select-list">
+	<dt><label>Select Driver:</label></dt>
+    <dd>
+    <select name="rd">
+    	<option value="LN">La Ni&ntilde;a</option>
+        <option value="EN" selected>El Ni&ntilde;o</option>
+        <option value="IODN">IOD Negative</option>
+        <option value="IODP">IOD Positive</option>
+        <option value="LN-IODN">LN/IOD Negative</option>
+        <option value="EN-IODP">EN/IOD Positive</option>
+    </select>
+    </dd>
+    <dt><label>Select Variable:</label></dt>
+    <dd>
+    <select name="rv">
+    	<option value="_rain" selected>Rain</option>
+        <option value="_tmax">T Max</option>
+        <option value="_tmin">T Min</option>
+    </select>
+    </dd>
+    <dt><label>Select Season:</label></dt>
+    <dd>
+    	<select name="rs">
+        	<option value="_winter" selected>Winter</option>
+            <option value="_spring">Spring</option>
+            <option value="_summer">Summer</option>
+            <option value="_autumn">Autumn</option>
+        </select>
+    </dd>
+</dl>
+</div>
+
+
+</form>
+</div>
+
+<div class="bsi-stage" style="padding-top:10px;">
+<div class="bsi-sweeper center-block" style="max-width:600px;">
+      <img id="left-bsi-image" src="media/bom_climate/graphics/bsi/australia_widget_basemap.jpg" class="img-responsive center-block">
+      <img id="right-bsi-image" src="media/bom_climate/graphics/bsi/australia_widget_basemap.jpg" class="img-responsive center-block">
+</div>
+<img id="bsi-legend" class="center-block img-responsive" src="samples/bom_climate/media/graphics/bsi/legends.jpg" alt="temp and rain legends" >
+</div>
+
+</div>
+<!-- end of bom-sweep-container -->
+
+ <p>&nbsp;</p><p class="print_hide"><strong>Use the arrows or radio buttons to advance through Questions 1-8.</strong></p>
+
+<div id="bsi-qslide" class="carousel slide" data-ride="carousel" data-wrap="false" data-interval="false">
+  <!-- Indicators -->
+  <ol class="carousel-indicators print_hide">
+    <li data-target="#bsi-qslide" data-slide-to="0" class="active"></li>
+    <li data-target="#bsi-qslide" data-slide-to="1"></li>
+    <li data-target="#bsi-qslide" data-slide-to="2"></li>
+    <li data-target="#bsi-qslide" data-slide-to="3"></li>
+    <li data-target="#bsi-qslide" data-slide-to="4"></li>
+    <li data-target="#bsi-qslide" data-slide-to="5"></li>
+    <li data-target="#bsi-qslide" data-slide-to="6"></li>
+    <li data-target="#bsi-qslide" data-slide-to="7"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <div class="panel panel-default interaction-question">
+          <div class="panel-body">
+            <div class="question-wrap checkboxes">
+            
+              <h4>Question 1 of 8</h4>
+              <p>What influence can a positive Indian Ocean Dipole (IOD) have in winter and spring? Select all that apply.</p>
+              <form action="#">
+                <fieldset>
+                  <div class="response-group-item">
+                    <input id="q03a" name="q03" value="a" type="checkbox">
+                    <label for="q03a"> <strong>a) </strong>Above normal rainfall across central and southeast Australia</label>
+                  </div>
+                  <div class="response-group-item correct">
+                    <input id="q03b" name="q03" value="b" type="checkbox">
+                    <label for="q03b"> <strong>b) </strong>Below normal rainfall across central and southeast Australia</label>
+                  </div>
+                  <div class="response-group-item correct">
+                    <input id="q03c" name="q03" value="c" type="checkbox">
+                    <label for="q03c"> <strong>c) </strong>Above normal temperatures across large parts of the country</label>
+                  </div>
+                  <div class="response-group-item">
+                    <input id="q03d" name="q03" value="d" type="checkbox">
+                    <label for="q03d"> <strong>d) </strong>Below normal temperatures across large parts of the country</label>
+                  </div>
+                  <input class="submit-button btn btn-primary" name="submit-button" value="Done" type="button">
+                </fieldset>
+              </form>
+              <div class="answer">
+                <p class="response">The correct answers are  b, c.</p>
+                <p class="explanation">The positive phase of the IOD typically results in drier than normal winter/spring conditions across central and southeast Australia. Temperatures tend to be warmer than normal across the southern part of the country but are typically cooler than normal in the northeast.</p>
+              </div>
+              <div class="message">Please make a selection.</div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="item">
+      <div class="panel panel-default interaction-question">
+          <div class="panel-body">
+            <div class="question-wrap radio">
+              <h4>Question 2 of 8</h4>
+              <p>How do the effects of a positive IOD on rainfall change during summer? Choose the best answer.</p>
+              <form action="#">
+                <fieldset>
+                  <div class="response-group-item">
+                    <input id="q04a" name="q04" value="a" type="radio">
+                    <label for="q04a"> <strong>a) </strong>Most regions show a shift to drier conditions</label>
+                  </div>
+                  <div class="response-group-item correct">
+                    <input id="q04b" name="q04" value="b" type="radio">
+                    <label for="q04b"> <strong>b) </strong>Most regions tend to experience more normal rainfall conditions (neither very wet nor very dry)</label>
+                  </div>
+                  <div class="response-group-item">
+                    <input id="q04c" name="q04" value="c" type="radio">
+                    <label for="q04c"> <strong>c) </strong>A positive IOD shows a strong rainfall signal including high likelihoods of extreme rainfall and flooding</label>
+                  </div>
+                  <input class="submit-button btn btn-primary" name="submit-button" value="Done" type="button">
+                </fieldset>
+              </form>
+              <div class="answer">
+              <p class="response">The correct answer is b.</p>
+                <p class="explanation">A positive IOD has less influence during the summer months and the rainfall outlooks will tend toward more normal conditions. Summer rainfall amounts tend to be dominated by other climate drivers, such as ENSO, SAM, or regional sea surface temperatures.</p></div>
+              <div class="message">Please make a selection.</div>
+            </div>
+          </div>
+        </div>
+    </div>
+    
+    <div class="item">
+      <div class="panel panel-default interaction-question">
+          <div class="panel-body">
+            <div class="question-wrap checkboxes">
+              <h4>Question 3 of 8</h4>
+              <p>What is the typical influence of El Niño on rainfall and maximum temperatures during winter and spring? Select all that apply.</p>
+              <form action="#">
+                <fieldset>
+                  <div class="response-group-item">
+                    <input id="q05a" name="q05" value="a" type="checkbox">
+                    <label for="q05a"> <strong>a) </strong>Above normal rainfall</label>
+                  </div>
+                  <div class="response-group-item correct">
+                    <input id="q05b" name="q05" value="b" type="checkbox">
+                    <label for="q05b"> <strong>b) </strong>Below normal rainfall</label>
+                  </div>
+                  <div class="response-group-item correct">
+                    <input id="q05c" name="q05" value="c" type="checkbox">
+                    <label for="q05c"> <strong>c) </strong>Above normal temperatures except in northern Australia</label>
+                  </div>
+                  <div class="response-group-item">
+                    <input id="q05d" name="q05" value="d" type="checkbox">
+                    <label for="q05d"> <strong>d) </strong>Below normal temperatures across western and southern Australia</label>
+                  </div>
+                  <input class="submit-button btn btn-primary" name="submit-button" value="Done" type="button">
+                </fieldset>
+              </form>
+              <div class="answer">
+                <p class="response">The correct answers are  b, c.</p>
+                <p class="explanation">El Niño has a very strong effect on rainfall amounts in eastern Australia. During El Niño, large parts of eastern Australia typically experience drier than usual conditions during winter and spring. Temperatures tend to be above normal except in the northernmost part of the country.</p>
+              </div>
+              <div class="message">Please make a selection.</div>
+            </div>
+          </div>
+        </div>
+    </div>
+    
+    <div class="item">
+      <div class="panel panel-default interaction-question">
+          <div class="panel-body">
+            <div class="question-wrap checkboxes">
+              <h4>Question 4 of 8</h4>
+              <p>What is the typical influence of La Niña on rainfall and maximum temperatures during winter and spring? Select all that apply.</p>
+              <form action="#">
+                <fieldset>
+                  <div class="response-group-item correct">
+                    <input id="q06a" name="q06" value="a" type="checkbox">
+                    <label for="q06a"> <strong>a) </strong>Above normal rainfall</label>
+                  </div>
+                  <div class="response-group-item">
+                    <input id="q06b" name="q06" value="b" type="checkbox">
+                    <label for="q06b"> <strong>b) </strong>Below normal rainfall</label>
+                  </div>
+                  <div class="response-group-item">
+                    <input id="q06c" name="q06" value="c" type="checkbox">
+                    <label for="q06c"> <strong>c) </strong>Above normal temperatures</label>
+                  </div>
+                  <div class="response-group-item correct">
+                    <input id="q06d" name="q06" value="d" type="checkbox">
+                    <label for="q06d"> <strong>d) </strong>Below normal temperatures</label>
+                  </div>
+                  <input class="submit-button btn btn-primary" name="submit-button" value="Done" type="button">
+                </fieldset>
+              </form>
+              <div class="answer">
+                <p class="response">The correct answers are  a, d.</p>
+                <p class="explanation">La Niña tends to result in wetter than normal conditions in winter/spring across central and eastern Australia. This change from below normal rainfall during El Niño to above normal rainfall during La Niña is the classic dry/wet cycle associated with ENSO. Temperatures during La Niña tend to be cooler than normal across much of Australia.</p>
+              </div>
+              <div class="message">Please make a selection.</div>
+            </div>
+          </div>
+        </div>
+    </div>
+    
+    <div class="item">
+      <div class="panel panel-default interaction-question">
+          <div class="panel-body">
+            <div class="question-wrap checkboxes">
+              <h4>Question 5 of 8</h4>
+              <p>What can you observe about the influence of El Niño during summer compared to winter? Select all that apply.</p>
+              <form action="#">
+                <fieldset>
+                  <div class="response-group-item correct">
+                    <input id="q07a" name="q07" value="a" type="checkbox">
+                    <label for="q07a"> <strong>a) </strong>The tendency toward drier conditions remains strong in parts of the tropics, but is less over the remainder of the country</label>
+                  </div>
+                  <div class="response-group-item correct">
+                    <input id="q07b" name="q07" value="b" type="checkbox">
+                    <label for="q07b"> <strong>b) </strong>In Western Australia, some locations tend to experience above-normal summer rainfall </label>
+                  </div>
+                  <div class="response-group-item">
+                    <input id="q07c" name="q07" value="c" type="checkbox">
+                    <label for="q07c"> <strong>c) </strong>The signal for above normal or below normal rainfall is very strong during the summer months</label>
+                  </div>
+                  <input class="submit-button btn btn-primary" name="submit-button" value="Done" type="button">
+                </fieldset>
+              </form>
+              <div class="answer">
+                <p class="response">The correct answers are  a, b.</p>
+                <p class="explanation">El Niño often results in a drier than normal northern summer wet season. However, away from the tropics the chance of rainfall tends to return to normal in summer. Some locations are even more likely to see a wetter than usual summer as El Niño decays.</p>
+              </div>
+              <div class="message">Please make a selection.</div>
+            </div>
+          </div>
+        </div>
+    </div>
+    
+    <div class="item">
+      <div class="panel panel-default interaction-question">
+          <div class="panel-body">
+            <div class="question-wrap checkboxes">
+              <h4>Question 6 of 8</h4>
+              <p>What can you observe about the influence of La Niña on rainfall and maximum temperatures during summer versus winter? Select all that apply.</p>
+              <form action="#">
+                <fieldset>
+                  <div class="response-group-item correct">
+                    <input id="q08a" name="q08" value="a" type="checkbox">
+                    <label for="q08a"> <strong>a) </strong>Summertime rainfall values tend to continue to be above normal </label>
+                  </div>
+                  <div class="response-group-item">
+                    <input id="q08b" name="q08" value="b" type="checkbox">
+                    <label for="q08b"> <strong>b) </strong>Summertime rainfall values tend to continue to be below normal </label>
+                  </div>
+                  <div class="response-group-item">
+                    <input id="q08c" name="q08" value="c" type="checkbox">
+                    <label for="q08c"> <strong>c) </strong>Maximum temperatures are likely to be above normal</label>
+                  </div>
+                  <div class="response-group-item correct">
+                    <input id="q08d" name="q08" value="d" type="checkbox">
+                    <label for="q08d"> <strong>d) </strong>Maximum temperatures are likely to be below normal</label>
+                  </div>
+                  <input class="submit-button btn btn-primary" name="submit-button" value="Done" type="button">
+                </fieldset>
+              </form>
+              <div class="answer">
+                <p class="response">The correct answers are  a, d.</p>
+                <p class="explanation">La Niña tends to result in wetter than usual conditions, with cooler maximum temperatures during the summer months. The trend toward wet, cool conditions  during the winter lingers into the summer months.</p>
+              </div>
+              <div class="message">Please make a selection.</div>
+            </div>
+          </div>
+        </div>
+    </div>
+    
+    <div class="item">
+      <div class="panel panel-default interaction-question">
+          <div class="panel-body">
+            <div class="question-wrap checkboxes">
+              <h4>Question 7 of 8</h4>
+              <p>What is the typical influence of a negative IOD on rainfall and maximum temperature during winter and spring? Select all that apply.</p>
+              <form action="#">
+                <fieldset>
+                  <div class="response-group-item correct">
+                    <input id="q09a" name="q09" value="a" type="checkbox">
+                    <label for="q09a"> <strong>a) </strong>Above normal rainfall</label>
+                  </div>
+                  <div class="response-group-item">
+                    <input id="q09b" name="q09" value="b" type="checkbox">
+                    <label for="q09b"> <strong>b) </strong>Below normal rainfall</label>
+                  </div>
+                  <div class="response-group-item">
+                    <input id="q09c" name="q09" value="c" type="checkbox">
+                    <label for="q09c"> <strong>c) </strong>Above normal temperatures across large parts of the country</label>
+                  </div>
+                  <div class="response-group-item correct">
+                    <input id="q09d" name="q09" value="d" type="checkbox">
+                    <label for="q09d"> <strong>d) </strong>Below normal temperatures except in northern Australia</label>
+                  </div>
+                  <input class="submit-button btn btn-primary" name="submit-button" value="Done" type="button">
+                </fieldset>
+              </form>
+              <div class="answer">
+                <p class="response">The correct answers are  a, d.</p>
+                <p class="explanation">During winter and spring, a negative IOD tends to result in above normal rainfall and cooler than normal temperatures across large parts of Australia. Temperatures trend toward normal or above normal in the northernmost part of the country.</p>
+              </div>
+              <div class="message">Please make a selection.</div>
+            </div>
+          </div>
+        </div>
+    </div>
+    
+    <div class="item">
+      <div class="panel panel-default interaction-question">
+          <div class="panel-body">
+            <div class="question-wrap radio">
+              <h4>Question 8 of 8</h4>
+              <p>How do the effects of a negative IOD on rainfall change during the summer? Choose the best answer.</p>
+              <form action="#">
+                <fieldset>
+                  <div class="response-group-item">
+                    <input id="q10a" name="q10" value="a" type="radio">
+                    <label for="q10a"> <strong>a) </strong>Most regions show a shift to drier than normal conditions</label>
+                  </div>
+                  <div class="response-group-item">
+                    <input id="q10b" name="q10" value="b" type="radio">
+                    <label for="q10b"> <strong>b) </strong>Most regions show a shift to wetter than normal conditions</label>
+                  </div>
+                  <div class="response-group-item correct">
+                    <input id="q10c" name="q10" value="c" type="radio">
+                    <label for="q10c"> <strong>c) </strong>The IOD has&nbsp;no clear influence on rainfall during summer&nbsp;</label>
+                  </div>
+                  <input class="submit-button btn btn-primary" name="submit-button" value="Done" type="button">
+                </fieldset>
+              </form>
+              <div class="answer">
+                <p class="response">The correct answer is  c.</p>
+                <p class="explanation">The IOD does not influence rainfall during the summer months. The southward progression of the monsoon trough into the southern hemisphere each year disrupts the IOD circulation and the tropical Indian Ocean returns to the neutral state of the IOD. </p>
+              </div>
+              <div class="message">Please make a selection.</div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+ <p><em>Use the arrows or radio buttons to advance through Questions 1-8. Be sure to complete all 8 questions before continuing to the next page. The information provided via these exercises will be useful for completing the case studies included in this lesson.</em></p><p>&nbsp;</p>
+  <!-- Controls -->
+ <div class="print_hide">
+  <a class="left carousel-control" href="#bsi-qslide" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#bsi-qslide" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+  </div>
+</div>
+        
+        
+      </div>
+		
 	</div>
 </section>
+	
+			<section id="comet-footer">
+		<div class="container-fluid comet-item" style="border-top: 6px solid #0265bd;">
+			<p> FOOTER GOES HERE</p>
+		</div>
+	</section>
 
 
 

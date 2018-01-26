@@ -12,37 +12,31 @@
 <script src="../node_modules/jquery/dist/jquery.min.js"></script>
 <script src="../node_modules/scrollmagic/scrollmagic/minified/ScrollMagic.min.js"></script>
 <link rel="stylesheet" type="text/css" href="../node_modules/bootstrap/dist/css/bootstrap.min.css" >
-<link rel="stylesheet" type="text/css" href="styles/main.css" >
-	
+
+
 <!-- MODULE-SPECIFIC DEPENDENCIES -->
-	
-<link rel="stylesheet" type="text/css" media="screen" href="samples/bom_climate/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" media="screen" href="samples/bom_climate/jquery/jquery-ui.min.css">
 <link rel="stylesheet" type="text/css" media="screen" href="samples/bom_climate/css/meted-base.css">
 <link rel="stylesheet" type="text/css" media="screen" href="samples/bom_climate/css/module-custom.css">
-<link rel="stylesheet" type="text/css" media="print" href="samples/bom_climate/css/module-print.css">
 <script type="text/javascript" src="samples/bom_climate/jquery/jquery.min.js"></script>
 <script type="text/javascript" src="samples/bom_climate/jquery/jquery-ui.min.js"></script>
 <script type="text/javascript" src="samples/bom_climate/jquery/jquery-plugins.min.js"></script>
-<script type="text/javascript" src="samples/bom_climate/bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="samples/bom_climate/modernizr/modernizr.min.js"></script>
-<link rel="stylesheet" type="text/css" media="screen" href="samples/bom_climate/jquery/meted-player/css/meted-player.min.css">
-<script src="samples/bom_climate/jquery/meted-player/js/meted-player.min.js"></script>
 <link rel="stylesheet" type="text/css" media="screen" href="samples/bom_climate/jquery/apps/fancybox/fancybox.min.css">
 <script type="text/javascript" src="samples/bom_climate/jquery/apps/fancybox/fancybox.min.js"></script>
-<script type="text/javascript" src="samples/bom_climate/jquery/apps/elevatezoom/elevatezoom.min.js"></script>
-<script type="text/javascript" src="samples/bom_climate/jquery/apps/drag/drag.js"></script>
-<script type="text/javascript" src="samples/bom_climate/jquery/apps/draw/draw.js"></script>
 <link rel="stylesheet" type="text/css" media="screen" href="samples/bom_climate/jquery/apps/image-sweep/image-sweep.css">
 <script type="text/javascript" src="samples/bom_climate/jquery/apps/image-sweep/image-sweep.js"></script>
 <script type="text/javascript" src="samples/bom_climate/jquery/defaults.js"></script>
-	
+
+
+<link rel="stylesheet" type="text/css" href="styles/main.css" >
+
 <!-- PRESET OVERRIDES =============================-->
 <script type="text/javascript">
 	var printVersion = false; // Specify Print View.  [true] for PRINT, or [false] for DYNAMIC content.
-  </script>	
-	
-	
+  </script>
+
+
 
 </head>
 <body>
@@ -50,8 +44,8 @@
   <!-- Top Navbar -->
   <!-- SQ: <nav class="navbar"> -->
 <nav class="portfolio-navbar">
-	
-	
+
+
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#comet-navbar" aria-expanded="false" aria-controls="navbar">
@@ -79,6 +73,12 @@
   <!-- Parallax background header -->
   <section class="parallax-header row" style="background-image: url('media/bom_climate_header.jpg');"></section>
 </div>
+	
+		
+	<!-- temporary portfolio navigation -->
+	<div class="portfolio-navigation">
+		<p><a href="item-3.htm">prev</a> | <a href="work.htm">index</a> | <a href="item-5.htm">next</a></p>
+	</div>
 
 <div class="container comet-item">
 
@@ -93,7 +93,7 @@
 <div class="comet-item-body">
 <div class="comet-item-objectives">
 	<h3>About this project</h3>
-	<p>COMET designs interactive data viewers to facilitate pattern recognition. This <a href="https://www.meted.ucar.edu/training_module.php?id=1247">lesson</a> teaches learners to interpret climate outlook maps for rainfall and temperature, and use the maps to inform decisions faced by climate-sensitive industries. The viewer below allows learners to compare the influence of various climate drivers on Australia’s climate. They practice interpreting products and making decisions based on the information.</p>
+	<p>COMET designs interactive data viewers to facilitate pattern recognition. The example below is from a <a href="https://www.meted.ucar.edu/training_module.php?id=1247">lesson</a> that teaches learners to interpret climate outlook maps for rainfall and temperature, and use those maps to inform climate-sensitive decisions. This data viewer allows learners to compare the influence of various climate drivers on Australia’s climate at different times of the year.</p>
 </div>
 <div class="comet-item-extra">
 	<p></p>
@@ -106,12 +106,12 @@
 <!-- page sample -->
 <section id="comet-item-content" class="row">
 	<div class="container">
-		
+
 		<div id="page_3-5-0">
         <h3>Data Viewer: Climate Drivers and Australian Climate</h3>
         <p>Use the data viewer to answer the following questions.  For each question, select the climate driver and season referenced in the question, and then compare the differences in observed rainfall and minimum and maximum temperatures (TMin/TMax).</p>
-        
-<script type="text/javascript" src="samples/bom_climate/jquery/apps/bom-dataviewer/active-sweep.js"></script>      
+
+<script type="text/javascript" src="samples/bom_climate/jquery/apps/bom-dataviewer/active-sweep.js"></script>
 <div class="container-fluid" style="min-height:700px;">
 <div class="row bsi-controls">
 <form id="bsi-form">
@@ -222,7 +222,7 @@
       <div class="panel panel-default interaction-question">
           <div class="panel-body">
             <div class="question-wrap checkboxes">
-            
+
               <h4>Question 1 of 8</h4>
               <p>What influence can a positive Indian Ocean Dipole (IOD) have in winter and spring? Select all that apply.</p>
               <form action="#">
@@ -286,7 +286,7 @@
           </div>
         </div>
     </div>
-    
+
     <div class="item">
       <div class="panel panel-default interaction-question">
           <div class="panel-body">
@@ -323,7 +323,7 @@
           </div>
         </div>
     </div>
-    
+
     <div class="item">
       <div class="panel panel-default interaction-question">
           <div class="panel-body">
@@ -360,7 +360,7 @@
           </div>
         </div>
     </div>
-    
+
     <div class="item">
       <div class="panel panel-default interaction-question">
           <div class="panel-body">
@@ -393,7 +393,7 @@
           </div>
         </div>
     </div>
-    
+
     <div class="item">
       <div class="panel panel-default interaction-question">
           <div class="panel-body">
@@ -430,7 +430,7 @@
           </div>
         </div>
     </div>
-    
+
     <div class="item">
       <div class="panel panel-default interaction-question">
           <div class="panel-body">
@@ -467,7 +467,7 @@
           </div>
         </div>
     </div>
-    
+
     <div class="item">
       <div class="panel panel-default interaction-question">
           <div class="panel-body">
@@ -514,13 +514,13 @@
   </a>
   </div>
 </div>
-        
-        
+
+
       </div>
-		
+
 	</div>
 </section>
-	
+
 			<section id="comet-footer">
 		<div class="container-fluid comet-item" style="border-top: 6px solid #0265bd;">
 			<p> FOOTER GOES HERE</p>

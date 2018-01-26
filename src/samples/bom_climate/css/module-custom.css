@@ -1,0 +1,346 @@
+/* ========================================================== */
+/* === LATEST CORE 2.O CUSTOM STYLES ======================== */
+/* ========================================================== */
+/* ========================================================== */
+/* === 1.0 OVERALL HTML ELEMENTS ============================ */
+body {
+  background-color: #fff; }
+
+/* WebFont Stack 1 - Normal Weight */
+@font-face {
+  font-family: "futurapro-normal";
+  src: url("fonts/futurapro/futurapro-normal.eot");
+  src: url("fonts/futurapro/futurapro-normal.eot?#iefix") format("embedded-opentype"), url("fonts/futurapro/futurapro-normal.woff") format("woff"), url("fonts/futurapro/futurapro-normal.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal; }
+/* WebFont Stack 2 - Bold, Black, or Heavy */
+@font-face {
+  font-family: "futurapro-bold";
+  src: url("fonts/futurapro/futurapro-bold.eot");
+  src: url("fonts/futurapro/futurapro-bold.eot?#iefix") format("embedded-opentype"), url("fonts/futurapro/futurapro-bold.woff") format("woff"), url("fonts/futurapro/futurapro-bold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: bold; }
+/* Links */
+a {
+  color: #B04F00;
+  text-decoration: none; }
+
+a:hover,
+a:focus {
+  color: #E33B49;
+  text-decoration: underline; }
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "futurapro-bold", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+
+/* Text Selection */
+::-moz-selection {
+  color: #fff;
+  background: #300CD2; }
+
+::selection {
+  color: #fff;
+  background: #300CD2; }
+
+/* ========================================================== */
+/* === 2.0 BOOTSTRAP COMPONENTS ============================= */
+/* === PAGE NAVIGATOR (pager) =============================== */
+.pager li > a,
+.pager li > span {
+  color: #E19049;
+  background-color: transparent;
+  border: 2px solid #E19049; }
+
+.pager li > a:hover,
+.pager li > a:focus {
+  background-color: #E19049;
+  color: #fff; }
+
+/* === DROPDOWN MENUS ======================================= */
+.dropdown-menu > .active > a,
+.dropdown-menu > .active > a:hover,
+.dropdown-menu > .active > a:focus {
+  background-color: #E19049; }
+
+/* === PILLS ================================================ */
+.nav-pills > li.active > a,
+.nav-pills > li.active > a:hover,
+.nav-pills > li.active > a:focus {
+  background-color: #EBE4B6; }
+
+/* === PRIMARY BUTTON ======================================== */
+.btn-primary {
+  background-color: #E33B49;
+  background-image: -webkit-linear-gradient(top, #E33B49 0%, #8E2118 100%);
+  background-image: -o-linear-gradient(top, #E33B49 0%, #8E2118 100%);
+  background-image: linear-gradient(to bottom, #E33B49 0%, #8E2118 100%);
+  background-repeat: repeat-x;
+  border-color: #E33B49; }
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #8E2118;
+  background-position: 0 -15px; }
+
+.btn-primary:active,
+.btn-primary.active {
+  background-color: #8E2118;
+  border-color: #EBE4B6; }
+
+.btn-primary:disabled,
+.btn-primary[disabled] {
+  background-color: #B9B287;
+  background-image: none;
+  border-color: #8E2118; }
+
+.nav > li > a:hover, .nav > li > a:focus {
+  text-decoration: none;
+  background-color: #E33B49;
+  color: #fff; }
+
+/* ========================================================== */
+/* === 3.0 LATEST CORE 2 COMPONENTS ========================= */
+/* === MODULE HEADER ======================================== */
+#module-title {
+  color: #fff;
+  font-family: "futurapro-bold";
+  font-size: 35px;
+  line-height: 35px;
+  text-shadow: 1px 1px 0px #000, 2px 2px 0px #000;
+  padding-top: 25px; }
+
+#module-title small, .module-title small {
+  color: #EBE4B6;
+  font-weight: normal !important; }
+
+/* Module Title Media Queries */
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  #module-title {
+    font-size: 41px;
+    line-height: 41px; } }
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  #module-title {
+    font-size: 43px;
+    line-height: 43px; } }
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  #module-title {
+    font-size: 47px;
+    line-height: 47px;
+    /* text-align:left;
+    padding-left:16px; */ } }
+#module-credit {
+  color: #fff;
+  font-family: "futurapro-bold";
+  text-shadow: 1px 1px 0px #000, 2px 2px 0px #000;
+  font-size: 12px; }
+
+/* === MODULE NAVIGATION MENU =============================== */
+.module-nav li.active a,
+.module-nav li.active a:focus,
+.module-nav li.active a:hover {
+  background-color: #E19049; }
+
+/* === MODULE UNIT/CHAPTER DROPDOWN MENU ==================== */
+.unit-header {
+  background: #E19049;
+  color: #fff; }
+
+#collapsible-toc .panel-default .panel-heading {
+  background: #E19049;
+  border-top-right-radius: 0px !important;
+  border-top-left-radius: 0px !important; }
+
+#collapsible-toc .panel-default .panel-heading a,
+#collapsible-toc .panel-default .panel-heading a:hover,
+#collapsible-toc .panel-default .panel-heading a:active {
+  color: #fff !important; }
+
+/* === BACK TO TOP BUTTON =================================== */
+.back-top a {
+  color: #ccc;
+  text-decoration: none; }
+
+.back-top a:hover {
+  color: #E33B49;
+  text-decoration: none; }
+
+/* === IMAGE AND TEXT CAPTIONS ============================== */
+.image-caption, .text-caption {
+  background: #d7d7d7; }
+
+/* ========================================================== */
+/* === 4.0 MODULE-SPECIFIC COMPONENTS ======================= */
+body#splash-page {
+  background-color: #333; }
+
+#splash-page .footer-text a {
+  color: #E33B49; }
+
+#module-topbanner {
+  background-image: url("../assets/module-banner.jpg");
+  background-repeat: no-repeat;
+  background-size: 1168px 170px;
+  background-position: top center; }
+
+/* Climate data viewer */
+.bsi-select-list {
+  font-size: 80%; }
+
+.bsi-select-list dt,
+.bsi-select-list dd {
+  float: left; }
+
+.bsi-select-list dt {
+  clear: left;
+  width: 100px; }
+
+/* SPINNER INTERACTION */
+.spinner-wrap {
+  position: relative;
+  /* border: 1px dotted purple;*/ }
+
+.spinner {
+  width: 300px;
+  height: 300px;
+  background: url(../media/graphics/routette_wheel_icon.png) no-repeat;
+  background-size: 300px 300px;
+  transition: ease-out 1.5s all;
+  clear: none;
+  /*border: 1px solid red;*/
+  /*border-radius: 3.5em;*/ }
+
+#s2 {
+  background: url(../media/graphics/routette_wheel_icon_02.png) no-repeat;
+  background-size: 300px 300px; }
+
+#s3 {
+  background: url(../media/graphics/routette_wheel_icon_03.png) no-repeat;
+  background-size: 300px 300px; }
+
+#s4 {
+  background: url(../media/graphics/routette_wheel_icon_04.png) no-repeat;
+  background-size: 300px 300px; }
+
+.com-copy {
+  font-size: 10px; }
+
+.spinner-ball {
+  width: 100px;
+  height: 100px;
+  font-size: 150%;
+  position: absolute;
+  top: 100px;
+  left: 115px;
+  transition: ease 2.5s all;
+  z-index: 1;
+  border-radius: 3.5em;
+  color: #000; }
+
+.spinner-marker {
+  width: 4px;
+  height: 4px;
+  background: #222;
+  margin-top: 36px;
+  margin-right: 20px;
+  float: left;
+  clear: none;
+  position: absolute; }
+
+.ball {
+  width: 16px;
+  height: 16px;
+  box-shadow: 2px 2px 2px #111;
+  background: #b5bdc8;
+  background: -moz-radial-gradient(center, ellipse cover, #b5bdc8 0%, #828c95 47%, #28343b 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #b5bdc8), color-stop(47%, #828c95), color-stop(100%, #28343b));
+  background: -webkit-radial-gradient(center, ellipse cover, #b5bdc8 0%, #828c95 47%, #28343b 100%);
+  background: -o-radial-gradient(center, ellipse cover, #b5bdc8 0%, #828c95 47%, #28343b 100%);
+  background: -ms-radial-gradient(center, ellipse cover, #b5bdc8 0%, #828c95 47%, #28343b 100%);
+  background: radial-gradient(ellipse at center, #b5bdc8 0%, #828c95 47%, #28343b 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b5bdc8', endColorstr='#28343b',GradientType=1 );
+  color: #fff;
+  display: inline-block;
+  border-radius: 2.5em;
+  padding-top: 2px;
+  padding-left: 2px; }
+
+@keyframes blink {
+  50% {
+    border: 3px dotted #433E3A; } }
+@keyframes blink-tx1 {
+  50% {
+    color: #57D178; } }
+@keyframes blink-tx2 {
+  50% {
+    color: #2D7BD1; } }
+#jckpt,
+#dbl-jckpt {
+  border: 3px dotted #FFF385;
+  background: #fc2323;
+  background: -moz-radial-gradient(center, ellipse cover, #fc2323 0%, #bc0000 50%, #560404 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #fc2323), color-stop(50%, #bc0000), color-stop(100%, #560404));
+  background: -webkit-radial-gradient(center, ellipse cover, #fc2323 0%, #bc0000 50%, #560404 100%);
+  background: -o-radial-gradient(center, ellipse cover, #fc2323 0%, #bc0000 50%, #560404 100%);
+  background: -ms-radial-gradient(center, ellipse cover, #fc2323 0%, #bc0000 50%, #560404 100%);
+  background: radial-gradient(ellipse at center, #fc2323 0%, #bc0000 50%, #560404 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fc2323', endColorstr='#560404',GradientType=1 );
+  color: #000;
+  opacity: 1;
+  max-width: 250px;
+  margin-top: 20px;
+  padding: 0px 10px;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 5px 5px 4px #FFFAC3;
+  animation: blink .5s step-end infinite alternate; }
+
+#jckpt h4,
+#dbl-jckpt h4 {
+  color: #2D7BD1;
+  margin: 4px auto;
+  text-shadow: 1px 1px 0px #FFDB21; }
+
+#jckpt p,
+#dbl-jckpt p {
+  font-size: 11px; }
+
+#db-1 {
+  animation: blink-tx1 .5s step-end infinite alternate; }
+
+#db-2 {
+  animation: blink-tx2 .5s step-end infinite alternate;
+  color: #57D178; }
+
+/*BSI Question Slider*/
+#bsi-qslide .carousel-control.left,
+#bsi-qslide .carousel-control.right {
+  background-image: none !important;
+  background: #333; }
+
+#bsi-qslide .carousel-control {
+  width: 14px;
+  height: 80px; }
+
+#bsi-qslide .carousel-indicators li {
+  border: 1px solid #E19049; }
+
+#bsi-qslide .carousel-indicators .active {
+  background-color: #E19049; }
+
+#bsi-qslide .carousel-control .glyphicon-chevron-left,
+#bsi-qslide .carousel-control .glyphicon-chevron-right {
+  font-size: 15px;
+  margin-top: -11px; }
+
+#bsi-qslide .carousel-indicators {
+  bottom: -20px; }
+
+#bsi-qslide .question-wrap {
+  padding: 0px 10px; }
+
+#splash-img-credit {
+	opacity: .2; }

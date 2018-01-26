@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Data Looper</title>
+<link rel="stylesheet" type="text/css" href="src/looper.css">
+<link rel="stylesheet" type="text/css" href="src/bootstrap/css/bootstrap.min.css">
+<script type="text/javascript" src="src/jquery.min.js"></script>
+<script type="text/javascript" src="src/looper.js"></script>
+<script type="text/javascript">
+// Set looper Max-Width (in Pixels)
+var loopMaxWidth = 1200;
+$(document).ready(function () {
+	// Looper Settings
+	$(".looper").looper({
+		navigation			: true, // Display the navigation controls
+      	slide_captions		: true, // Display the slide info
+      	slide_counter		: true, // Display the slide counter
+      	speed_controls		: true, // Display the speed controls
+      	forward_backward	: true, // Display the step controls
+      	autoplay			: true  // Set looper to autoplay
+	});
+});
+</script>
+</head>
+
+<body>
+<div  id="preload-wrapper" class="container-fluid">
+  <div class="looper">
+    <img src='jquery.min.js' alt='Image 1' class='img-responsive'>
+    <img src='looper.css' alt='Image 2' class='img-responsive'>
+    <img src='looper.js' alt='Image 3' class='img-responsive'>

@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Data Looper</title>
+<link rel="stylesheet" type="text/css" href="src/looper.css">
+<link rel="stylesheet" type="text/css" href="src/bootstrap/css/bootstrap.min.css">
+<script type="text/javascript" src="src/jquery.min.js"></script>
+<script type="text/javascript" src="src/looper.js"></script>
+<script type="text/javascript">
+// Set looper Max-Width (in Pixels)
+var loopMaxWidth = 850;
+$(document).ready(function () {
+	// Looper Settings
+	$(".looper").looper({
+		navigation			: true, // Display the navigation controls
+      	slide_captions		: false, // Display the slide info
+      	slide_counter		: true, // Display the slide counter
+      	speed_controls		: true, // Display the speed controls
+      	forward_backward	: true, // Display the step controls
+      	autoplay			: true  // Set looper to autoplay
+	});
+});
+</script>
+</head>
+
+<body>
+<div  id="preload-wrapper" class="container-fluid">
+  <div class="looper">
+    <img src='scon_tstorm_growth_conceptual_1.jpg' alt='Image 1' class='img-responsive'>
+    <img src='scon_tstorm_growth_conceptual_2.jpg' alt='Image 2' class='img-responsive'>
+    <img src='scon_tstorm_growth_conceptual_3.jpg' alt='Image 3' class='img-responsive'>
+    <img src='scon_tstorm_growth_conceptual_4.jpg' alt='Image 4' class='img-responsive'>
+    <img src='scon_tstorm_growth_conceptual_5.jpg' alt='Image 5' class='img-responsive'>
+    <img src='scon_tstorm_growth_conceptual_6.jpg' alt='Image 6' class='img-responsive'>
+   </div><!- End Looper -->
+
+</div><!- End Preload Wrapper -->
+</body>
+</html>

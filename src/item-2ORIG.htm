@@ -1,0 +1,440 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>COMET Portfolio - Our Work</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- DEPENDENCIES -->
+<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../node_modules/scrollmagic/scrollmagic/minified/ScrollMagic.min.js"></script>
+<link rel="stylesheet" type="text/css" href="../node_modules/bootstrap/dist/css/bootstrap.min.css" >
+<link rel="stylesheet" type="text/css" href="styles/main.css" >
+
+</head>
+<body>
+<div class="container-fluid topbar">
+  <!-- Top Navbar -->
+  <nav class="portfolio-navbar">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#comet-navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="index.htm" class="navbar-brand">
+      	<img class="comet-logo" src="media/comet-blacktext.png" alt="COMET" >
+      </a>
+    </div>
+    <div id="comet-navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="active"><a href="work.htm">Our Work</a></li>
+        <li><a href="about.htm">About Us</a></li>
+        <li><a href="contact.htm">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  </nav>
+</div>
+
+<div class="container-fluid">
+  <!-- Parallax background header -->
+  <section class="parallax-header row" style="background-image: url('media/fire_wx_comms/crew_boss1.jpg');"></section>
+</div>
+
+<div class="container comet-item">
+
+<div class="comet-item-header">
+	
+		<p style="color:red">Need to add nav buttons centered!</p>
+
+	
+<div class="comet-item-category">
+<h2>SIMULATION: NOAA</h2>
+</div>
+<div class="comet-item-title"><h1>Fire Weather Communications: Clear Communications</h1></div>
+</div>
+
+
+<div class="comet-item-body">
+<div class="comet-item-objectives">
+	<h3>Training Objectives</h3>
+	<p>Proactively communicate with forecasters, partners and stakeholders including other offices, Regional/National Centers, IMETs, and Geographic Coordination Center Meteorologists to ensure that a consistent message is created/communicated to the public.</p>
+</div>
+<div class="comet-item-extra">
+	<h3>Solution</h3>
+	<p>This branching simulation is a great way for learners to see the consequences of their choices and adjust their communication.  They can do this in the safety of the module rather than endangering lives while they learn how to communicate with their partners.  After three tries, it offers specific feedback about things that learners need to improve.</p>
+</div>
+</div>
+
+</div>
+<!-- end comet-item -->
+
+<!-- page sample -->
+<section id="comet-item-content" class="row">
+	<div class="container">
+		
+		<div id="page_simulation">
+	<h3>Simulation</h3>
+	<p>This simulation will give you a chance to apply what you already know about communicating fire weather information to National Weather Service (NWS) partners.  You will take the role of a NWS meteorologist communicating fire weather information to a Fire Operations Chief via a teleconference.  Your partner’s reaction and decisions will change based on your selections.</p>
+
+			<hr>
+			<p><span style="font-weight: bold">Instructions: </span>There are three questions in this simulation.  To complete the simulation successfully, you will need to select the correct answer for all three questions.  Feedback is available only after you complete the simulation.  You will have three attempts to complete the simulation successfully.  Launch the simulation when you are ready.</p>
+			<hr>
+					
+	<script type="text/javascript" src="jquery/module-custom.js"></script>				
+					
+	
+	<p><strong>Scenario:</strong> In July, drought and lightning strikes have led to a number of large fires across northwest California and southwest Oregon. Thousands of firefighters and multiple Incident Management Teams are deployed across the region, and resources are stretched thin. It is August, and for a second time this month, thunderstorms are forecast to roll through the region as a small cut-off low lingers off the California coast.</p>
+	<p>You are a forecaster in the Medford, Oregon Weather Forecast Office (WFO) and you are working with 5 Incident Meterologists (IMETs) on various fires, and a couple of Type II teams that do not have IMETs assigned to them yet. One of those Type II fires without an IMET is the Little Deer fire in Siskiyou County, California.</p>
+	<p>An earlier call with the IMETs revealed that they are frustrated by the inability to use the models to develop a sense of timing or intensity for the thunderstorms.  The firefighters are very worried about control issues due to erratic winds. The HRRR model guidance indicates thunderstorms developing between 16:00 and 18:00 PDT.  The Storm Prediction Center has a general risk of convection for the day.  One limiting factor is that recent thunderstorms have tempered fuels with the humidity not much below 30%, so you do not expect many new fire starts. The weather could be a problem for existing fires, but the risk for starting new fires is low. </p>
+	
+	<img src="media/fire_wx_comms/graphics/open_truck.jpg" class="center-block img-responsive" alt="Firefighters in an open National Guard vehicle."><br>
+	
+	<p>You receive a call from an Operations Section Chief at the Little Deer fire.  The Operations Chief explains that they have National Guard troops in the field fighting the fire. Their main operational constraint is that their vehicles are not enclosed in the back, just tarped. If a thunderstorm develops, their only option is to disengage 90 minutes ahead of any storms to drive back to Yreka.  This will limit the risk that the troops will be struck by lightning, either on the line or in the back of the trucks.  This also limits how far they are going to let the troops hike off the roads without adding too much time to their 90 minute window.</p>
+	<a href="#firewx-sim" class="btn btn-primary print_hide" data-toggle="modal" data-backdrop="static">Launch Simulation</a>
+	<br><br>
+
+			<div id="firewx-sim" class="modal fade print_hide" tabindex="-1" role="dialog">
+<div class="modal-dialog modal-lg" role="document">
+<div class="modal-content">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		<h3 class="modal-title">Communication Simulation</h3>
+		<p class="fws-data-legend small">Attempt <span id="fws-attempt-count">#</span> of 3</p>
+	</div>
+	
+	<div id="fws-container" class="modal-body">
+	<div class="fws-header">
+	  <progress id="fws-progress-bar" max="100" value="0"></progress>
+	
+	  <div class="panel panel-default">
+		<div class="panel-heading small">
+		  <a data-toggle="collapse" href="#mod-data">Data <span class="glyphicon glyphicon-plus-sign pull-right"></span></a>
+		</div>
+	  <div id="mod-data" class="panel-collapse collapse">
+		  <div class="panel-body">
+			
+			
+			<div class="tabs-container">
+				<ul id="tab-set-01" class="nav nav-tabs small" role="tablist">
+				  <li>
+					<a href="#tab0-0" role="tab" data-toggle="tab" class="tab-switch">Scenario</a>
+				  </li>
+				  <li id="tab1-identifyer" class="active">
+					<a href="#tab1-0" role="tab" data-toggle="tab" class="tab-switch">Locations</a>
+				  </li>
+				  <li id="tab2-identifyer">
+					<a href="#tab2-0" role="tab" data-toggle="tab" class="tab-switch">Model Convective Activity Forecast</a>
+				  </li>
+				</ul>
+				<div class="tab-content"> 
+			  	  <div class="tab-pane fade" id="tab0-0">  <!-- Scenario -->
+					<p>In July, drought and lightning strikes have led to a number of large fires across northwest California and southwest Oregon. Thousands of firefighters and multiple Incident Management Teams are deployed across the region, and resources are stretched thin. It is August, and for a second time this month, thunderstorms are forecast to roll through the region as a small cut-off low lingers off the California coast.</p>
+	<p>You are a forecaster in the Medford, Oregon Weather Forecast Office (WFO) and you are working with 5 Incident Meterologists (IMETs) on various fires, and a couple of Type II teams that do not have IMETs assigned to them yet. One of those Type II fires without an IMET is the Little Deer fire in Siskiyou County, California.</p>
+	<p>An earlier call with the IMETs revealed that they are frustrated by the inability to use the models to develop a sense of timing or intensity for the thunderstorms.  The firefighters are very worried about control issues due to erratic winds. The HRRR model guidance indicates thunderstorms developing between 16:00 and 18:00 PDT.  The Storm Prediction Center has a general risk of convection for the day.  One limiting factor is that recent thunderstorms have tempered fuels with the humidity not much below 30%, so you do not expect many new fire starts. The weather could be a problem for existing fires, but the risk for starting new fires is low. </p>
+	
+	<!-- <img src="media/graphics/open_truck.jpg" class="center-block img-responsive" alt="Firefighters in an open National Guard vehicle."> -->
+	
+	<p>You receive a call from an Operations Section Chief at the Little Deer fire.  The Operations Chief explains that they have National Guard troops in the field fighting the fire. Their main operational constraint is that their vehicles are not enclosed in the back, just tarped. If a thunderstorm develops, their only option is to disengage 90 minutes ahead of any storms to drive back to Yreka.  This will limit the risk that the troops will be struck by lightning, either on the line or in the back of the trucks.  This also limits how far they are going to let the troops hike off the roads without adding too much time to their 90 minute window.</p>
+				  </div>
+				  <!-- end tab pane -->
+				  
+				  <div class="tab-pane fade in active" id="tab1-0"> <!-- Locations -->
+					<img src="media/fire_wx_comms/graphics/sim_map.jpg" class="center-block img-responsive" alt="Locations for Little Deer Fire, Burley and Chico, CA.">
+				  </div>
+				  <!-- end tab pane -->
+
+				  <div class="tab-pane fade" id="tab2-0">  <!-- Model COnvective Activity Forecast -->
+					
+					  
+					  <!-- <script type="text/javascript">
+						// <![CDATA[
+						if (printVersion){
+							//use still image
+							document.write('<a href="media/loops/rap_loop_01/index.htm" class="datalooper fancybox.iframe"><img src="media/loops/rap_loop_01/rap_loop_01.jpg" alt="Animation Loop Title" class="img-responsive center-block"><p class="text-center">Click here to see data loop</p></a>');
+						}else{	
+							//use data loop
+							document.write(' --> <iframe src="media/fire_wx_comms/loops/rap_loop_01/index.htm" width="640" height="480" frameborder="0" class="data-loop" style="min-height:620px;"></iframe> <!-- ');
+						}
+						// ]]>
+					</script> -->
+					</div>
+				  <!-- end tab pane -->
+
+				  </div>
+				<!-- end tab content -->
+			  </div>
+			
+			
+			
+		  </div>
+	  </div>
+	  </div><!--end collapsible panel -->
+	</div>
+	<div class="fws-body">
+		<div class="fws-page current" data-stage="1" data-order="0">
+		<h4>Question 1.</h4>
+		<img src="media/fire_wx_comms/graphics/cartoonfireboss1_sm.jpg" class="chief-thumb" alt="Fire boss">
+			<p>The HRRR model guidance indicates thunderstorms developing between 16:00 and 18:00 PDT.  The Storm Prediction Center has a general risk of convection for the day.  One limiting factor is that recent thunderstorms have tempered fuels with the humidity not much below 30%, so you do not expect many new fire starts. The weather could be a problem for existing fires, but the risk for starting new fires is low. To view the full scenario click the “Data” link above.</p><p>The Operations Chief’s main question when he calls at 10:30 PDT for you is “What will the weather do today?”</p>
+			<p>Which of the following statements will you choose to best communicate the expected weather situation?</p>
+		<br>
+		<div class="panel panel-default">
+          <div class="panel-body interaction-question">
+            <div class="question-wrap checkboxes">
+              <form action="#">
+              <fieldset class="fws-random-responses">
+                <div class="response-group-item correct"><input id="q01a" name="q01" value="a" type="radio"><label for="q01a">We are forecasting that thunderstorms could reach the area in the late afternoon. But, thunderstorms could develop very quickly overhead with another hour or two of heating.  The crews need to be alert.  I will know more around 11:30 and can give you another update then. </label>
+				</div>
+				<div class="response-group-item"><input id="q01b" name="q01" value="b" type="radio"><label for="q01b">There is plenty of instability and moisture around, so thunderstorms today are a good bet.  The HRRR model shows thunderstorms over the area in the afternoon.  But, other IMETs are concerned about the reliability of the model when it comes to the timing and intensity of the convection that will develop.  I will know more around 11:30 and can give you another update then.</label>
+				</div>
+				<div class="response-group-item"><input id="q01c" name="q01" value="c" type="radio"><label for="q01c">The Storm Prediction Center only has a general risk of convection today, so I am not overly worried about having any severe thunderstorms.  Since the thunderstorms could be a mix of wet and dry storms, I am not confident enough in the overall threat to issue a Red Flag Warning for today.  I will know more around 11:30 and can give you another update then. </label>
+				</div>
+              </fieldset>
+            </form>
+              <div class="answer">
+                <p class="response">The correct answers are  b, c.</p>
+                <p class="explanation">The positive phase of the IOD typically results in drier than normal winter/spring conditions across central and southeast Australia. Temperatures tend to be warmer than normal across the southern part of the country but are typically cooler than normal in the northeast.</p>
+              </div>
+              <div class="message">Please make a selection.</div>
+            </div>
+          </div>
+        </div>
+		</div>
+		<!-- end fws-page L1 -->
+		
+		<div class="fws-page" data-stage="2" data-order="a">
+		<h4>Question 2.</h4>
+			<p>You have continued monitoring the situation for the last few hours. The latest HRRR model guidance shows thunderstorms developing between 16:00 and 18:00 PDT and staying mainly to the east of the fire.  A recent IMET sounding shows the Lifted Index (LI) is already approaching -4 in Burney, CA and lightning has been detected near Chico from thunderstorms which have mostly been along the Sierra Crest all morning.</p>
+			<img src="media/graphics/cartoonfireboss1_sm.jpg" class="chief-thumb" alt="Fire boss">
+			<p>At 11:30 PDT, the Operations Section Chief from the Little Deer fire calls again. “The last time we spoke, you said that the storms could develop in the late afternoon today.  Is that timing still correct?  Where will the storms be in relation to the fire?  How confident are you in the forecast?”</p>
+			<div class="panel panel-default interaction-question">
+				<div class="panel-body">
+				<div class="question-wrap radio">
+					<form action="#">
+					  <fieldset class="fws-random-responses">
+						<div class="response-group-item correct"><input id="q21a" name="q21" value="a" type="radio"><label for="q21a">The forecast indicates that thunderstorms could reach the area around 16:00 and since the closest thunderstorms are 150 miles to the south, this timing seems reasonable.  The atmosphere has become unstable already, thunderstorms could develop very quickly overhead with another hour or two of heating.  I am fairly confident that the storms could occur a bit earlier than 16:00. </label>
+						</div>
+						<div class="response-group-item"><input id="q21b" name="q21" value="b" type="radio"><label for="q21b">I am not entirely confident about when the thunderstorms could reach your fire. While the HRRR model shows thunderstorms reaching the area around 16:00, the most recent lifted index at Burney was -4 by an IMET balloon. This tells me that the thunderstorm timing could be earlier. Bottom line is you could see thunderstorms develop close to 13:00, but almost certainly by 16:00.</label>
+						</div>
+						<div class="response-group-item"><input id="q21c" name="q21" value="c" type="radio"><label for="q21c">I want to let you know that the probabilities of a thunderstorm hitting your fire today are very high. We already have thunderstorms west of the Sierra Crest down by Chico, which almost never happens this time of year. The ingredients are just too strong to rule out thunderstorm development overhead, so I cannot really give you a better idea on the timing other than from noon to 18:00. </label>
+						</div>
+					  </fieldset>
+					</form>
+					<div class="message">Please make a selection.</div>
+				  </div>
+				</div>
+			</div>
+		</div>
+		<!-- end fws-page L2 -->
+		
+		
+		<div class="fws-page" data-stage="2" data-order="b">
+		<h4>Question 2.</h4>
+		<p>You have continued monitoring the situation for the last few hours. The latest HRRR model guidance shows thunderstorms developing between 16:00 and 18:00 PDT and staying mainly to the east of the fire.  A recent IMET sounding shows the LI is already approaching -4 in Burney, CA and lightning has been detected near Chico from thunderstorms which have mostly been along the Sierra Crest all morning.</p>
+		<img src="media/graphics/cartoonfireboss1_sm.jpg" class="chief-thumb" alt="Fire boss">
+		<p>At 11:30 PDT, the Operations Section Chief from the Little Deer fire calls again.
+“The last time we spoke, you were pretty sure that thunderstorms will develop today.  But, you and other IMETs were arguing about the timing.  I hope you sorted it out and have better timing information for me? Also, where will the storms be in relation to the fire?  How confident are you in the forecast?</p>
+			<div class="panel panel-default interaction-question">
+				<div class="panel-body">
+				<div class="question-wrap radio">
+					<form action="#">
+					  <fieldset class="fws-random-responses">
+						<div class="response-group-item correct"><input id="q22a" name="q22" value="a" type="radio"><label for="q22a">The forecast indicates that thunderstorms could reach the area around 16:00 and since the closest thunderstorms are 150 miles to the south, this timing seems reasonable.  The atmosphere has become unstable already, thunderstorms could develop very quickly overhead with another hour or two of heating.  I am fairly confident that the storms could occur a bit earlier than 16:00. </label>
+						</div>
+						<div class="response-group-item"><input id="q22b" name="q22" value="b" type="radio"><label for="q22b">I am not entirely confident about when the thunderstorms could reach your fire. While the HRRR model shows thunderstorms reaching the area around 16:00, the most recent lifted index at Burney was -4 recorded by an IMET balloon. This tells me that the thunderstorm timing could be earlier. Bottom line is you could see thunderstorms develop close to 13:00, but almost certainly by 16:00.</label>
+						</div>
+						<div class="response-group-item"><input id="q22c" name="q22" value="c" type="radio"><label for="q22c">I want to let you know that the probabilities of a thunderstorm hitting your fire today are very high. We already have thunderstorms west of the Sierra Crest down by Chico, which almost never happens this time of year. The ingredients are just too strong to rule out thunderstorm development overhead, so I don’t know if I can really give you a better idea on the timing other than from noon to 18:00.  </label>
+						</div>
+					  </fieldset>
+					</form>
+					<div class="message">Please make a selection.</div>
+				  </div>
+				</div>
+			</div>
+		</div>
+		<!-- end fws-page L2 -->
+		
+		
+		<div class="fws-page" data-stage="2" data-order="c">
+		<h4>Question 2.</h4>
+		<p>You have continued monitoring the situation for the last few hours. The latest HRRR model guidance shows thunderstorms developing between 16:00 and 18:00 PDT and staying mainly to the east of the fire.  A recent IMET sounding shows the LI is already approaching -4 in Burney, CA and lightning has been detected near Chico from thunderstorms which have mostly been along the Sierra Crest all morning.</p>
+		<img src="media/graphics/cartoonfireboss1_sm.jpg" class="chief-thumb" alt="Fire boss">
+		<p>At 11:30 PDT the Operations Section Chief from the Little Deer fire calls again.  “The last time we spoke, the Storm Prediction Center told you there was a low chance of storms today.  You did not think the lightning threat was an issue for starting new fires, so you were holding off on the Red Flag Warning.  How confident are you in that forecast? What happened with the model that was showing some thunderstorms?  Does it give you some timing information you can share? Also, if the storms happen, where will they be in relation to the fire?</p>
+			<div class="panel panel-default interaction-question">
+				<div class="panel-body">
+				<div class="question-wrap radio">
+					<form action="#">
+					  <fieldset class="fws-random-responses">
+						<div class="response-group-item correct"><input id="q23a" name="q23" value="a" type="radio"><label for="q23a">The forecast indicates that thunderstorms could reach the area around 16:00 and since the closest thunderstorms are 150 miles to the south, this timing seems reasonable.  The atmosphere has become unstable already, thunderstorms could develop very quickly overhead with another hour or two of heating.  I am fairly confident that the storms could occur a bit earlier than 16:00. </label>
+						</div>
+						<div class="response-group-item"><input id="q23b" name="q23" value="b" type="radio"><label for="q23b">I am not entirely confident about when the thunderstorms could reach your fire. While the HRRR model shows thunderstorms reaching the area around 16:00, the most recent lifted index at Burney was -4 recorded by an IMET balloon. This tells me that the thunderstorm timing could be earlier. Bottom line is you could see thunderstorms develop close to 13:00, but almost certainly by 16:00.</label>
+						</div>
+						<div class="response-group-item"><input id="q23c" name="q23" value="c" type="radio"><label for="q23c">I want to let you know that the probabilities of a thunderstorm hitting your fire today are very high. The lifted index is -4 at Burney and we already have thunderstorms west of the Sierra Crest down by Chico, which almost never happens this time of year. The ingredients are just too strong to rule out thunderstorm development overhead, so I don’t know if I can really give you a better idea on the timing other than from noon to 18:00.</label>
+						</div>
+					  </fieldset>
+					</form>
+					<div class="message">Please make a selection.</div>
+				  </div>
+				</div>
+			</div>
+		</div>
+		<!-- end fws-page L2 -->
+		
+		
+		
+		<div class="fws-page" data-stage="3" data-order="a">
+		<h4>Question 3.</h4>
+		<img src="media/graphics/cartoonfireboss1_sm.jpg" class="chief-thumb" alt="Fire boss">
+		<p>The Operations Sections Chief follows up with this question “So, you are fairly confident that the storms will most likely arrive around 16:00 but there is a chance they could impact the fire sooner.  What will be the main impacts?”</p>
+			<div class="panel panel-default interaction-question">
+				<div class="panel-body">
+				<div class="question-wrap radio">
+					<form action="#">
+					  <fieldset class="fws-random-responses">
+						<div class="response-group-item correct"><input id="q31a" name="q31" value="a" type="radio"><label for="q31a">If the thunderstorms develop, prepare for gusty winds and brief showers.  Smoke is holding back the heating a bit right now, but as soon as you see cumulus clouds developing over the high terrain, that would be your cue that thunderstorm development could occur within 60 minutes.  If adequate shelter is not immediately available, firefighters need to take action right away to limit possible lightning exposure. </label>
+						</div>
+						<div class="response-group-item"><input id="q31b" name="q31" value="b" type="radio"><label for="q31b">Thunderstorms could develop overhead, leading to a need for a quick decision for line personnel to head to shelter. You will probably be okay until 16:00, but if you hear radio chatter on other fires about IMETs issuing weather alerts, that could be your cue to take action.</label>
+						</div>
+						<div class="response-group-item"><input id="q31c" name="q31" value="c" type="radio"><label for="q31c">If the thunderstorms develop and their outflow winds reach as far as the area of the fire, prepare for gusty winds and an occasional shower.  I am not comfortable with issuing a Red Flag Warning based on the current fuel and humidity conditions in order to avoid message fatigue.  Your teams need to be on the lookout, but if cumulus clouds do not develop in their vicinity, they can continue their work without interruption.</label>
+						</div>
+					  </fieldset>
+					</form>
+					<div class="message">Please make a selection.</div>
+				  </div>
+				</div>
+			</div>
+		</div>
+		<!-- end fws-page L3 -->
+		
+		
+		<div class="fws-page" data-stage="3" data-order="b">
+		<h4>Question 3.</h4>
+		<img src="media/graphics/cartoonfireboss1_sm.jpg" class="chief-thumb" alt="Fire boss">
+		<p>The Operations Sections Chief follows up with this question “So, you made me wait an hour and you are still not sure when the storms will get over the fire. The model is telling you at 16:00, but some IMET balloon is telling you 13:00, and you believe it.  This makes it harder to figure out what to tell my crews. I don’t think they will go for the balloon part to be honest. Do you at least have an idea of what will be the main impacts?”</p>
+			<div class="panel panel-default interaction-question">
+				<div class="panel-body">
+				<div class="question-wrap radio">
+					<form action="#">
+					  <fieldset class="fws-random-responses">
+						<div class="response-group-item correct"><input id="q32a" name="q32" value="a" type="radio"><label for="q32a">I understand your concern about uncertain timing. Let's focus on impacts and inform firefighters about what indicators might be a signal that conditions are about to change. Smoke is holding back the heating now, but if you see cumulus clouds developing over the high terrain, that would be your cue that thunderstorm development and gusty winds and lighting could occur within 60 minutes.  If adequate shelter is not immediately available, firefighters need to take action right away to limit possible lightning exposure. </label>
+						</div>
+						<div class="response-group-item"><input id="q32b" name="q32" value="b" type="radio"><label for="q32b">Please calm down, this is the best I can do.  Thunderstorms west of the Sierra Crest are pretty rare in August, so while the model is usually pretty good, this is a scenario where I am not sure I can trust it, especially on timing.  If thunderstorms form, some of them could develop overhead, and will need a quick decision for line personnel to head to shelter. You will probably be okay until 16:00, but if you hear radio chatter on other fires about IMETs issuing weather alerts, that could be your cue to take action. </label>
+						</div>
+						<div class="response-group-item"><input id="q32c" name="q32" value="c" type="radio"><label for="q32c">There is no need to get angry.  There is little I can do.  This pattern is pretty rare and other forecasters are struggling with it.  If it were easy, more people will be able do it.  I am not comfortable with issuing a Red Flag Warning based on the current conditions in order to avoid message fatigue.  Your teams need to have a lookout and if they see cumulus clouds developing they need to head back to shelter.  If those clouds do not develop, they can continue their work without interruption.</label>
+						</div>
+					  </fieldset>
+					</form>
+					<div class="message">Please make a selection.</div>
+				  </div>
+				</div>
+			</div>
+		</div>
+		<!-- end fws-page L3 -->
+		
+		
+		<div class="fws-page" data-stage="3" data-order="c">
+		<h4>Question 3.</h4>
+		<img src="media/graphics/cartoonfireboss1_sm.jpg" class="chief-thumb" alt="Fire boss">
+		<p>The Operations Sections Chief follows up with this question “I waited an hour for you and the best you can do is tell me what is happening at Burney and Chico.  I don’t really care what is happening there.  I need to know what will be the situation over the Little Deer fire. You sound pretty sure that thunderstorms will reach the fire today sometime between noon and 18:00. That is a pretty big time window and is not helping me plan the work or what to tell my crews.  Can you at least tell me what will be the main impacts?”</p>
+			<div class="panel panel-default interaction-question">
+				<div class="panel-body">
+				<div class="question-wrap radio">
+					<form action="#">
+					  <fieldset class="fws-random-responses">
+						<div class="response-group-item correct"><input id="q33a" name="q33" value="a" type="radio"><label for="q33a">I understand your concern about uncertain timing. Let's focus on impacts and inform firefighters about what indicators might be a signal that conditions are about to change.  Smoke is holding back the heating now, but if you see cumulus clouds developing over the high terrain, that would be your cue that thunderstorm development and gusty winds and lightning could occur within 60 minutes.  If adequate shelter is not immediately available, firefighters need to take action right away to limit possible lightning exposure. </label>
+						</div>
+						<div class="response-group-item"><input id="q33b" name="q33" value="b" type="radio"><label for="q33b">I know you don’t care about the conditions at Chico but this is important information about the state of the atmosphere. If thunderstorms form some of them could develop overhead, and will need a quick decision for line personnel to head to shelter. You will probably be okay until 16:00, but if you hear radio chatter on other fires about IMETs issuing weather alerts, that could be your cue to take action. </label>
+						</div>
+						<div class="response-group-item"><input id="q33c" name="q33" value="c" type="radio"><label for="q33c">All of us are under a lot stress with this system. I don’t like it any better than you do but these are the limitations of meteorology and we have to live with them. I am not comfortable with issuing a Red Flag Warning based on the current fuel and humidity conditions in order to avoid message fatigue.  Your teams need to be on the lookout, but if cumulus clouds do not develop in their vicinity, they can continue their work without interruption.</label>
+						</div>
+					  </fieldset>
+					</form>
+					<div class="message">Please make a selection.</div>
+				  </div>
+				</div>
+			</div>
+		</div>
+		<!-- end fws-page L3 -->
+		
+		
+		<div class="fws-page" data-stage="feedback">
+			<h4>Feedback</h4> 
+			<!-- Feedback: correct or incorrect -->
+			<div id="fws-correct-statement" class="fws-feedback hidden">
+				<p><span class="glyphicon glyphicon-ok" style="color: limegreen"></span> Well done!  Your communication effort was successful.  You described the weather threat by relating it to the partner’s concerns.  The timing, location, and confidence descriptions were appropriate and free of meteorological jargon.  You also avoided mentioning Red Flag Warning when the criteria were not met.  Lastly, you communicated the impacts well and offered how the Operations Chief could monitor the situation, which will assist with decision-making.</p>
+
+				<p>The storms developed around 14:30 and reached the fire.  The National Guard troops were told to disengage and hike back to their trucks at 13:45.  They were in their trucks and halfway back to their Incident Command Post (90 minute drive) when they got a bit of rain on them. But, a lightning strike was observed in the area they had been working on the fire at about 15:30.  All crews were able to work as long as possible and get safely to the trucks and shelter.</p>			
+			</div>
+			<div id="fws-incorrect-statement" class="fws-feedback hidden">
+			
+			<p><span class="glyphicon glyphicon-remove" style="color:darkred"></span>You struggled communicating the forecast information to your partners.  To be safe, the Operations Chief kept the crews close to the trucks and lost a fireline as a result.</p>
+			</div>
+			
+			<!-- Feedback: Wx
+			<p>Wx Block</p> -->
+			
+			<!-- Feedback: user decisions -->
+			<p id="fws-1a" class="fws-feedback hidden"><em>Question 1</em><br>You described the weather threat appropriately by relating it to the partner’s main concern.</p>
+			<p id="fws-1b" class="fws-feedback hidden"><em>Question 1</em><br>The weather threat was described in terms of model performance and concerns from IMETs rather than relating it to the partner’s concern.</p>
+			<p id="fws-1c" class="fws-feedback hidden"><em>Question 1</em><br>The weather threat was described in terms of convection risk and the need for a Red Flag Warning rather than relating it to the partner’s concern. Additionally, mentioning the phrase Red Flag Warning could distract from your message because Red Flag Warning is not what you are expecting.  It may be better to simply say, “Any thunderstorms should result in very few to no new starts because of the recent rain”.</p>
+			
+			
+			<p id="fws-2a" class="fws-feedback hidden"><em>Question 2</em><br>You expressed the timing, location, and confidence appropriately.</p>
+			<p id="fws-2b" class="fws-feedback hidden"><em>Question 2</em><br>The timing, location, and confidence level was obscured by meteorological jargon.  That makes it difficult to select a course of action.  Since the Chief waited an hour and the information makes it difficult to make a decision, this will increase the frustration level.</p>
+			<p id="fws-2c" class="fws-feedback hidden"><em>Question 2</em><br>The timing lacked the necessary temporal resolution and it was unclear how the geographical information relates to the area of the fire.  That makes it difficult to select a course of action.  Since the Chief waited an hour and the information makes it difficult to make a decision, this will increase the frustration level.</p>
+			
+			
+			<p id="fws-3a" class="fws-feedback hidden"><em>Question 3</em><br>You communicated the impacts well and offered a course of action to the Operations Chief to assist with decision-making.  You also showed patience and understanding for the Chief’s concern despite the anger in the question.</p>
+			
+			
+			<p id="fws-3aab" class="fws-feedback hidden"><em>Question 3</em><br>There was little description of the potential impacts and since the Little Deer fire has no IMET assigned, they will have to listen to messages about other fires rather than their own.</p>
+			<p id="fws-3aac" class="fws-feedback hidden"><em>Question 3</em><br>Mentioning the phrase Red Flag Warning could distract from your message because Red Flag Warning is not what you are expecting. It may be better to simply say, “Any thunderstorms should result in very few to no new starts because of the recent rain”.<br> The use of words like “if” and phrases like “I am not comfortable” lead toward a low degree of confidence in the provided information.  
+While one always needs to be cognizant about message fatigue, sometimes the weather goes through rare cycles where impacts seem to occur on a daily basis. Given the risk to the firefighters exposed outside, it is important to take each event on its own merits. It is necessary to always make the maximum effort to ensure firefighter safety, despite our own biases.</p>
+			
+			<p id="fws-3ax" class="fws-feedback hidden"><em>Question 3</em><br>You communicated the impacts well and offered how the Operations Chief could monitor the situation, which will assist with decision-making.  You also avoided mentioning Red Flag Warning when the criteria were not met.</p>
+			
+			
+			<p id="fws-3b" class="fws-feedback hidden"><em>Question 3</em><br>You selected a statement that defended your lack of certainty in the timing and did not acknowledge the Chief’s concern.  This places you on opposite sides in the situation instead of being partners.  There was little description of the potential impacts and since the Little Deer fire has no IMET assigned, they will have to listen to messages about other fires rather than their own. </p>
+			<p id="fws-3c" class="fws-feedback hidden"><em>Question 3</em><br>You selected a very defensive approach instead of acknowledging the Chief’s concern.  This creates a confrontation instead of partnership in this difficult situation. In addition,  the use of words like “if” and phrases like “I am not comfortable” lead toward a low degree of confidence in the provided information.  Mentioning the phrase Red Flag Warning could distract from your message because Red Flag Warning is not what you are expecting. It may be better to simply say, “Any thunderstorms should result in very few to no new starts because of the recent rain”.<br>
+While one always needs to be cognizant about message fatigue, sometimes the weather goes through rare cycles where impacts seem to occur on a daily basis. Given the risk to the firefighters exposed outside, it is important to take each event on its own merits. It is necessary to always make the maximum effort to ensure firefighter safety, despite our own biases.</p>
+			
+			
+			
+			<!-- Feedback: buttons -->
+			<a id="fws-retry-btn" href="#" class="btn btn-block btn-primary fws-feedback hidden" name="submit-button">Try Again</a>
+			<a id="fws-end-btn" href="#" class="btn btn-block btn-primary fws-feedback hidden" name="submit-button" data-dismiss="modal">End Simulation</a>
+		</div>
+		<!-- end fws-page FEEDBACK -->
+		
+	</div>
+	<div class="fws-footer">
+		<input id="fws-submit-btn" class="btn btn-block btn-primary" name="submit-button" value="Continue" type="button" disabled>
+	</div>
+	</div>
+	
+</div>
+</div>
+</div>
+<!-- end simulation wrap -->
+					
+					
+					
+					
+					
+				</div>
+	</div>
+</section>
+
+
+
+<!-- LOAD ADDITIONAL SCRIPTS -->
+<script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="js/defaults.js"></script>
+</body>
+</html>

@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="drill.css" />
+	<script  type="text/javascript" src="jquery/jquery-1.9.1.js"></script>
+	<script  type="text/javascript" src="jquery/jquery-ui-1.10.3.custom.js"></script>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Drill Template</title>
+	
+<script type="text/javascript">
+
+//Fix for ie 7/8
+if ('function' !== typeof Array.prototype.indexOf) 
+{
+	Array.prototype.indexOf = function(obj, start) {
+	    for (var i = (start || 0), j = this.length; i < j; i++) {
+	        if (this[i] === obj) { return i; }
+	    }
+	    return -1;
+	}
+}
+
+//Fix for ie 7/8
+if ('function' !== typeof Array.prototype.reduce) 
+{
+  Array.prototype.reduce = function(callback, opt_initialValue){
+    'use strict';
+    if (null === this || 'undefined' === typeof this) {
+      // At the moment all modern browsers, that support strict mode, have
+      // native implementation of Array.prototype.reduce. For instance, IE8
+      // does not support strict mode, so this check is actually useless.
+      throw new TypeError(
+          'Array.prototype.reduce called on null or undefined');
+    }
+    if ('function' !== typeof callback) {
+      throw new TypeError(callback + ' is not a function');
+    }
+    var index, value,
+        length = this.length >>> 0,
+        isValueSet = false;
+    if (1 < arguments.length) {
+      value = opt_initialValue;
+      isValueSet = true;
+    }
+    for (index = 0; length > index; ++index) {
+      if (this.hasOwnProperty(index)) {
+        if (isValueSet) {
+          value = callback(value, this[index], index, this);
+        }
+        else {
+          value = this[index];
+          isValueSet = true;
+        }
+      }
+    }
+    if (!isValueSet) {
+      throw new TypeError('Reduce of empty array with no initial value');
+    }
+    return value;
+  };
+}
+
+
+var insert_index = new Array(1, 6 ,14);
+var question_order = new Array(); 
+var number_of_questions = 0;
+$(function() 
+{
+	$("input[name='answer']").prop('checked', false);
+	//$( "#content_3" ).html( $( "#content_3" ).html() + " (Insert schedule" + insert_index.join() + ")");
+	
+	
+	$( ".question" ).each(function( index ) 
+	{
+		number_of_questions++;
+		question_order.push(index + 1);
+	 	 //Hide all but the first question.	
+	 	if(index != 0)
+	  	{
+	  		$(this).css("display", "none");
+	  	}
+	  
+	  	//Load all the questions numbers wwe find into the middle column for testing.
+	  //	$( "#content_3" ).html( $( "#content_3" ).html() + "<br/>" + (index + 1) );
+	});
+	
+	//Init the mastered count.
+	$( "#content_2" ).html( $( "#content_2" ).html() +"<p>"+ "Items mastered: 0 of " + number_of_questions +"</p>" );
+	
+	
+	//Reveal the answer when a radio button is selected and re-add the question to the queue if wrong.
+	//$( "input[name='answer']" ).click(function() 
+	$( "body" ).on( "click", "input[name='answer']", function() 		
+	{
+		$("input[name='answer']").attr( "disabled", "disabled" );
+
+		if( $(this).attr("value") == "correct" )
+		{
+			$(this).parents(".question").find(".feedback_correct").css("display", "block");
+			$(this).parents(".question").find(".feedback_incorrect").css("display", "none");
+			question_order.shift();
+		}else
+		{
+			$(this).parents(".question").find(".feedback_correct").css("display", "none");
+			$(this).parents(".question").find(".feedback_incorrect").css("display", "block");
+			var item = question_order.shift();
+			
+			//Remove all the instances of that question before reinserting.
+			for (i = 0; i < question_order.length; ++i) 
+			{
+				if(question_order[i] == item)
+				{	
+					question_order.splice(i, 1);
+				}
+			}
+			
+			//Need to add the item back at the indexies.
+			for (i = 0; i < insert_index.length; ++i) 
+			{
+				//Don't add more than one of a certain question to the end of the queue. This logic works because we remove all the instances in the loop above.
+				if( question_order[question_order.length - 1] != item )
+				{
+					question_order.splice(insert_index[i], 0, item);
+				}
+				
+			}
+			
+			
+		}
+		$(".next").css("display", "block");
+		
+		$( "#content_3" ).html( "Order: (Insert schedule" + insert_index.join() + ") <br/>" + question_order.join("<br/>") );
+		
+		
+		//Update the mastered list.
+		unique = arrayUnique(question_order);
+		mastered =  number_of_questions - unique.length;
+			//Define the drill name for end message.
+			var drillName = "27 States of the Sky";
+		$( "#content_2" ).html( "<p>"+"Items mastered: " + mastered + " of " + number_of_questions+"</p>");
+		if(mastered == number_of_questions)
+		{
+			$( "#content_2" ).html( "<p>"+"Congratulations! You have completed the " + drillName + " drill. Consider working through it a few more times over the next couple of days to solidify what you have learned." + "</p>" ),
+			$(".next").css("display", "none");
+		};
+		
+	});
+	
+	$(".next").click(function() 
+	{	
+		$("input[name='answer']").removeAttr( "disabled" );
+		$("input[name='answer']").prop('checked', false);
+		
+		$(".next").css("display", "none");
+		$(".feedback_correct").css("display", "none");
+		$(".feedback_incorrect").css("display", "none");
+		
+		$( ".question" ).each(function( index ) 
+		{	
+			if(question_order[0] == (index + 1))
+			{
+				$(this).css("display", "block");
+				
+				var answerlist = new Array();
+				
+				//Randomize the questions.
+				var answerDiv = $(this).find(".answers");
+				
+				answerDiv.find("p").each(function( index ) 
+				{
+					answerlist.push($(this).html());					
+				});
+				
+				answerlist = shuffle(answerlist);
+				
+				answerDiv.html("");
+				$.each(answerlist, function( index, value ) 
+				{
+					answerDiv.html( answerDiv.html() + "<p> " + value + "</p>" );
+				});
+				
+			}else
+			{
+				$(this).css("display", "none")
+			}
+		});
+	});
+	
+	
+});
+
+var arrayUnique = function(a) 
+{
+    return a.reduce(function(p, c) 
+    {
+        if (p.indexOf(c) < 0) p.push(c);
+        return p;
+    }, []);
+};
+
+
+function shuffle(array) 
+{
+	var currentIndex = array.length
+	  , temporaryValue
+	  , randomIndex
+	  ;
+	
+	// While there remain elements to shuffle...
+	while (0 !== currentIndex) 
+	{
+	
+	  // Pick a remaining element...
+	  randomIndex = Math.floor(Math.random() * currentIndex);
+	  currentIndex -= 1;
+	
+	  // And swap it with the current element.
+	  temporaryValue = array[currentIndex];
+	  array[currentIndex] = array[randomIndex];
+	  array[randomIndex] = temporaryValue;
+	}
+
+  return array;
+}
+
+
+</script>	
+</head>
+<body>
+<div id="maincontent" style="display:block; margin: 0 auto;">
+
+		<div id="content_1">
+
+        <div class="question" >
+        <div class="center"><img src="images/cumulus_L1_1.jpg" alt="photo" /></div>
+				<p>What type of cloud is present in this state of the sky image?</p>
+				<div class="answers">
+                <p><input id="q1a" name="answer" type="radio" value="incorrect" />
+                <label for="q1a">cirrus</label></p>
+
+                <p><input id="q1b" name="answer" type="radio" value="correct" />
+                <label for="q1b">cumulus</label></p>
+
+                <p><input id="q1c" name="answer" type="radio" value="incorrect" />
+                <label for="q1c">stratus</label></p>
+
+                <p><input id="q1d" name="answer" type="radio" value="incorrect" />
+                <label for="q1d">altocumulus</label></p>
+			 	</div>
+			 	
+			 	<div class="feedback_correct">
+			 	<p>Correct. This is cumulus with little vertical extent, L1<img src="images/l1.gif" alt="icon" />.</p>
+			 	</div>
+			 	<div class="feedback_incorrect">
+			 	<p>Incorrect. This is cumulus with little vertical extent, L1<img src="images/l1.gif" alt="icon" /> .</p>
+			 	</div>
+			 </div>
+
+			 
+			 <div class="question" >
+             <div class="center"><img src="images/cirrus_h1_2.jpg" alt="photo" /></div>
+				<p>What type of cloud describes this state of the sky?</p>
+				<div class="answers">
+                <p><input id="q2a" name="answer" type="radio" value="incorrect" />
+                <label for="q2a">cumulus</label></p>
+
+                <p><input id="q2b" name="answer" type="radio" value="incorrect" />
+                <label for="q2b">cirrocumulus</label></p>
+
+                <p><input id="q2c" name="answer" type="radio" value="incorrect" />
+                <label for="q2c">cirrostratus</label></p>
+
+                <p><input id="q2d" name="answer" type="radio" value="correct" />
+                <label for="q2d">cirrus</label></p>
+			 	</div>
+			 	
+			 	<div class="feedback_correct">
+			 	<p>Correct. This is cirrus, present in fine filaments. H1<img src="images/h1.gif" alt="icon" />.</p>
+			 	</div>
+			 	<div class="feedback_incorrect">
+			 	<p>Incorrect. This is cirrus, present in fine filaments. H1<img src="images/h1.gif" alt="icon" />.</p>
+			 	</div>
+			 </div>
+			 
+			 <div class="question" >
+             <div class="center"><img src="images/cumulus_l2_2.jpg" alt="photo" /></div>
+				<p>What type of cloud is depicted in this image?</p>
+				<div class="answers">
+                <p><input id="q3a" name="answer" type="radio" value="incorrect" />
+                <label for="q3a">stratus</label></p>
+
+                <p><input id="q3b" name="answer" type="radio" value="correct" />
+                <label for="q3b">cumulus</label></p>
+
+                <p><input id="q3c" name="answer" type="radio" value="incorrect" />
+                <label for="q3c">altostratus</label></p>
+
+                <p><input id="q3d" name="answer" type="radio" value="incorrect" />
+                <label for="q3d">altocumulus</label></p>
+			 	</div>
+			 	
+			 	<div class="feedback_correct">
+			 	<p>Correct. These are cumulus clouds having a moderate or greater vertical extent, L2<img src="images/l2.gif" alt="icon" />.</p>
+			 	</div>
+			 	<div class="feedback_incorrect">
+			 	<p>Incorrect. These are cumulus clouds having a moderate or greater vertical extent, L2<img src="images/l2.gif" alt="icon" />.</p>
+			 	</div>
+			 </div>
+			 
+			 <div class="question" >
+             <div class="center"><img src="images/stratus_l6_3.jpg" alt="photo" /></div>
+				<p>Which cloud type is shown here?</p>
+				<div class="answers">
+                <p><input id="q4a" name="answer" type="radio" value="incorrect" />
+                <label for="q4a">cumulus</label></p>
+
+                <p><input id="q4b" name="answer" type="radio" value="correct" />
+                <label for="q4b">stratus</label></p>
+
+                <p><input id="q4c" name="answer" type="radio" value="incorrect" />
+                <label for="q4c">altostratus</label></p>
+
+                <p><input id="q4d" name="answer" type="radio" value="incorrect" />
+                <label for="q4d">stratocumulus</label></p>
+			 	</div>
+			 	
+			 	<div class="feedback_correct">
+			 	<p>Correct. These are stratus clouds, L6<img src="images/l6.gif" alt="icon" />.</p>
+			 	</div>
+			 	<div class="feedback_incorrect">
+			 	<p>Incorrect. These are stratus clouds, L6<img src="images/l6.gif" alt="icon" />.</p>
+			 	</div>
+			 </div>
+			 
+			 <div class="question" >
+             <div class="center"><img src="images/cirrus_h4_2.jpg" alt="photo" /></div>
+				<p>What type of cloud is present in this state of the sky?</p>
+				<div class="answers">
+                <p><input id="q5a" name="answer" type="radio" value="correct" />
+                <label for="q5a">cirrus</label></p>
+
+                <p><input id="q5b" name="answer" type="radio" value="incorrect" />
+                <label for="q5b">cirrostratus</label></p>
+
+                <p><input id="q5c" name="answer" type="radio" value="incorrect" />
+                <label for="q5c">altocumulus</label></p>
+
+                <p><input id="q5d" name="answer" type="radio" value="incorrect" />
+                <label for="q5d">stratocumulus</label></p>
+			 	</div>
+			 	
+			 	<div class="feedback_correct">
+			 	<p>Correct. This is cirrus progressively invading the sky, H4<img src="images/h4.gif" alt="icon" />.</p>
+			 	</div>
+			 	<div class="feedback_incorrect">
+			 	<p>Incorrect. This is cirrus progressively invading the sky, H4<img src="images/h4.gif" alt="icon" />.</p>
+			 	</div>
+			 </div>
+			 
+			 <div class="question" >
+             <div class="center"><img src="images/altostratus_M1_1.jpg" alt="photo" /></div>
+				<p>What type of cloud is depicted here?</p>
+				<div class="answers">
+                <p><input id="q6a" name="answer" type="radio" value="incorrect" />
+                <label for="q6a">cirrocumulus</label></p>
+
+                <p><input id="q6b" name="answer" type="radio" value="correct" />
+                <label for="q6b">altostratus</label></p>
+
+                <p><input id="q6c" name="answer" type="radio" value="incorrect" />
+                <label for="q6c">altocumulus</label></p>
+
+                <p><input id="q6d" name="answer" type="radio" value="incorrect" />
+                <label for="q6d">cirrus</label></p>
+			 	</div>
+			 	
+			 	<div class="feedback_correct">
+			 	<p>Correct. This is thin altostratus, M1<img src="images/m1.gif" alt="icon" />.</p>
+			 	</div>
+			 	<div class="feedback_incorrect">
+			 	<p>Incorrect. This is thin altostratus, M1<img src="images/m1.gif" alt="icon" />.</p>
+			 	</div>
+			 </div>
+			 
+			 <div class="question" >
+             <div class="center"><img src="images/altocumulus_m7_1.jpg" alt="photo" /></div>
+				<p>What type of cloud composed the majority of this state of the sky image?</p>
+				<div class="answers">
+                <p><input id="q7a" name="answer" type="radio" value="incorrect" />
+                <label for="q7a">stratocumulus</label></p>
+
+                <p><input id="q7b" name="answer" type="radio" value="correct" />
+                <label for="q7b">altocumulus</label></p>
+
+                <p><input id="q7c" name="answer" type="radio" value="incorrect" />
+                <label for="q7c">cirrostratus</label></p>
+
+                <p><input id="q7d" name="answer" type="radio" value="incorrect" />
+                <label for="q7d">nimbus</label></p>
+			 	</div>
+			 	
+			 	<div class="feedback_correct">
+			 	<p>Correct. These are altocumulus clouds in layers, M7<img src="images/m7.gif" alt="icon" />.</p>
+			 	</div>
+			 	<div class="feedback_incorrect">
+			 	<p>Incorrect. These are altocumulus clouds in layers, M7<img src="images/m7.gif" alt="icon" />.</p>
+			 	</div>
+			 </div>
+			 
+			 <div class="question" >
+             <div class="center"><img src="images/cirrus_h2_2.jpg" alt="photo" /></div>
+				<p>Which cloud type describes this state of the sky?</p>
+				<div class="answers">
+                <p><input id="q8a" name="answer" type="radio" value="incorrect" />
+                <label for="q8a">cirrocumulus</label></p>
+
+                <p><input id="q8b" name="answer" type="radio" value="incorrect" />
+                <label for="q8b">cirrostratus</label></p>
+
+                <p><input id="q8c" name="answer" type="radio" value="correct" />
+                <label for="q8c">cirrus</label></p>
+
+                <p><input id="q8d" name="answer" type="radio" value="incorrect" />
+                <label for="q8d">stratus</label></p>
+			 	</div>
+			 	
+			 	<div class="feedback_correct">
+			 	<p>Correct. Cirrus, present as Dense Cirrus H2<img src="images/h2.gif" alt="icon" />.</p>
+			 	</div>
+			 	<div class="feedback_incorrect">
+			 	<p>Incorrect. Cirrus, present as Dense Cirrus H2<img src="images/h2.gif" alt="icon" />.</p>
+			 	</div>
+			 </div>
+             
+             <div class="question" >
+             <div class="center"><img src="images/altocumulus_m8_1.jpg" alt="photo" /></div>
+				<p>What type of cloud is shown here?</p>
+				<div class="answers">
+                <p><input id="q9a" name="answer" type="radio" value="incorrect" />
+                <label for="q9a">cirrocumulus</label></p>
+
+                <p><input id="q9b" name="answer" type="radio" value="incorrect" />
+                <label for="q9b">stratocumulus</label></p>
+
+                <p><input id="q9c" name="answer" type="radio" value="correct" />
+                <label for="q9c">altocumulus</label></p>
+
+                <p><input id="q9d" name="answer" type="radio" value="incorrect" />
+                <label for="q9d">cirrostratus</label></p>
+			 	</div>
+			 	
+			 	<div class="feedback_correct">
+			 	<p>Correct. These are altocumulus clouds with tufts or sproutings in the form of small towers. They can also be called altocumulus castellanus (ACCAS), M8<img src="images/m8.gif" alt="icon" />.</p>
+			 	</div>
+			 	<div class="feedback_incorrect">
+			 	<p>Incorrect. These are altocumulus clouds with tufts or sproutings in the form of small towers. They can also be called altocumulus castellanus (ACCAS), M8<img src="images/m8.gif" alt="icon" />.</p>
+			 	</div>
+			 </div>
+
+<div class="question" >
+             <div class="center"><img src="images/altocumulus_m5_2.jpg" alt="photo" /></div>
+				<p>What type of cloud is shown here?</p>
+				<div class="answers">
+                <p><input id="q10a" name="answer" type="radio" value="incorrect" />
+                <label for="q10a">stratocumulus</label></p>
+
+                <p><input id="q10b" name="answer" type="radio" value="correct" />
+                <label for="q10b">altocumulus</label></p>
+
+                <p><input id="q10c" name="answer" type="radio" value="incorrect" />
+                <label for="q10c">cirrus</label></p>
+
+                <p><input id="q10d" name="answer" type="radio" value="incorrect" />
+                <label for="q10d">cirrocumulus</label></p>
+			 	</div>
+			 	
+			 	<div class="feedback_correct">
+			 	<p>Correct. These are altocumulus clouds progressively invading the sky, M5<img src="images/m5.gif" alt="icon" />.</p>
+			 	</div>
+			 	<div class="feedback_incorrect">
+			 	<p>Incorrect. These are altocumulus clouds progressively invading the sky, M5<img src="images/m5.gif" alt="icon" />.</p>
+			 	</div>
+			 </div>
+
+<div class="question" >
+             <div class="center"><img src="images/stratocumulus_l5_1.jpg" alt="photo" /></div>
+				<p>What type of cloud is shown here?</p>
+				<div class="answers">
+                <p><input id="q11a" name="answer" type="radio" value="incorrect" />
+                <label for="q11a">cumulus</label></p>
+
+                <p><input id="q11b" name="answer" type="radio" value="correct" />
+                <label for="q11b">stratocumulus</label></p>
+
+                <p><input id="q11c" name="answer" type="radio" value="incorrect" />
+                <label for="q11c">altocumulus</label></p>
+
+                <p><input id="q11d" name="answer" type="radio" value="incorrect" />
+                <label for="q11d">altostratus</label></p>
+			 	</div>
+			 	
+			 	<div class="feedback_correct">
+			 	<p>Correct. These are stratocumulus clouds not spreading out of cumulus, L5<img src="images/l5.gif" alt="icon" />.</p>
+			 	</div>
+			 	<div class="feedback_incorrect">
+			 	<p>Incorrect. These are stratocumulus clouds not spreading out of cumulus, L5<img src="images/l5.gif" alt="icon" />.</p>
+			 	</div>
+			 </div>
+
+<div class="question" >
+             <div class="center"><img src="images/cirrocumulus_h9_3.jpg" alt="photo" /></div>
+				<p>What type of cloud is shown here?</p>
+				<div class="answers">
+                <p><input id="q12a" name="answer" type="radio" value="correct" />
+                <label for="q12a">cirrocumulus</label></p>
+
+                <p><input id="q12b" name="answer" type="radio" value="incorrect" />
+                <label for="q12b">cumulus</label></p>
+
+                <p><input id="q12c" name="answer" type="radio" value="incorrect" />
+                <label for="q12c">stratus</label></p>
+
+                <p><input id="q12d" name="answer" type="radio" value="incorrect" />
+                <label for="q12d">nimbostratus</label></p>
+			 	</div>
+			 	
+			 	<div class="feedback_correct">
+			 	<p>Correct. The photo shows cirrocumulus, H9<img src="images/h9.gif" alt="icon" />.</p>
+			 	</div>
+			 	<div class="feedback_incorrect">
+			 	<p>Incorrect. The photo shows cirrocumulus, H9<img src="images/h9.gif" alt="icon" />.</p>
+			 	</div>
+			 </div>
+
+<div class="question" >
+             <div class="center"><img src="images/cumulus_l8_1.jpg" alt="photo" /></div>
+				<p>What type of cloud is shown here?</p>
+				<div class="answers">
+                <p><input id="q13a" name="answer" type="radio" value="correct" />
+                <label for="q13a">cumulus, stratocumulus</label></p>
+
+                <p><input id="q13b" name="answer" type="radio" value="incorrect" />
+                <label for="q13b">cirrocumulus</label></p>
+
+                <p><input id="q13c" name="answer" type="radio" value="incorrect" />
+                <label for="q13c">cumulus, nimbostratus</label></p>
+
+                <p><input id="q13d" name="answer" type="radio" value="incorrect" />
+                <label for="q13d">altocumulus</label></p>
+			 	</div>
+			 	
+			 	<div class="feedback_correct">
+			 	<p>Correct. Cumulus is present beneath patches or a sheet of stratocumulus, L8<img src="images/l8.gif" alt="icon" />.</p>
+			 	</div>
+			 	<div class="feedback_incorrect">
+			 	<p>Incorrect. Cumulus is present beneath patches or a sheet of stratocumulus, L8<img src="images/l8.gif" alt="icon" />.</p>
+			 	</div>
+			 </div>
+
+<div class="question" >
+             <div class="center"><img src="images/cirrus_h3_2.jpg" alt="photo" /></div>
+				<p>Look in the upper part of this state of the sky photo. What high altitude cloud is present?</p>
+				<div class="answers">
+                <p><input id="q14a" name="answer" type="radio" value="correct" />
+                <label for="q14a">cirrus resulting from cumulonimbus</label></p>
+
+                <p><input id="q14b" name="answer" type="radio" value="incorrect" />
+                <label for="q14b">cirrostratus resulting from cumulus</label></p>
+
+                <p><input id="q14c" name="answer" type="radio" value="incorrect" />
+                <label for="q14c">stratocumulus</label></p>
+
+                <p><input id="q14d" name="answer" type="radio" value="incorrect" />
+                <label for="q14d">stratus</label></p>
+			 	</div>
+			 	
+			 	<div class="feedback_correct">
+			 	<p>Correct. This is dense cirrus resulting from cumulonimbus, H3<img src="images/h3.gif" alt="icon" />.</p>
+			 	</div>
+			 	<div class="feedback_incorrect">
+			 	<p>Incorrect. This is dense cirrus resulting from cumulonimbus, H3<img src="images/h3.gif" alt="icon" />.</p>
+			 	</div>
+			 </div>
+
+<div class="question" >
+             <div class="center"><img src="images/stratocumulus_l4_2.jpg" alt="photo" /></div>
+				<p>Which type of cloud is shown here?</p>
+				<div class="answers">
+                <p><input id="q15a" name="answer" type="radio" value="incorrect" />
+                <label for="q15a">cirrocumulus</label></p>
+
+                <p><input id="q15b" name="answer" type="radio" value="incorrect" />
+                <label for="q15b">altocumulus</label></p>
+
+                <p><input id="q15c" name="answer" type="radio" value="correct" />
+                <label for="q15c">stratocumulus</label></p>
+
+                <p><input id="q15d" name="answer" type="radio" value="incorrect" />
+                <label for="q15d">nimbostratus</label></p>
+			 	</div>
+			 	
+			 	<div class="feedback_correct">
+			 	<p>Correct. This is stratocumulus spreading out of cumulus, L4<img src="images/l4.gif" alt="icon" />.</p>
+			 	</div>
+			 	<div class="feedback_incorrect">
+			 	<p>Incorrect. This is stratocumulus spreading out of cumulus, L4<img src="images/l4.gif" alt="icon" />.</p>
+			 	</div>
+			 </div>
+
+<div class="question" >
+             <div class="center"><img src="images/cirrostratus_h5_1.jpg" alt="photo" /></div>
+				<p>What type of cloud composes the majority of this state of the sky?</p>
+				<div class="answers">
+                <p><input id="q16a" name="answer" type="radio" value="incorrect" />
+                <label for="q16a">cirrus</label></p>
+
+                <p><input id="q16b" name="answer" type="radio" value="correct" />
+                <label for="q16b">cirrostratus</label></p>
+
+                <p><input id="q16c" name="answer" type="radio" value="incorrect" />
+                <label for="q16c">cumulonimbus</label></p>
+
+                <p><input id="q16d" name="answer" type="radio" value="incorrect" />
+                <label for="q16d">altocumulus</label></p>
+			 	</div>
+			 	
+			 	<div class="feedback_correct">
+			 	<p>Correct. The photo shows cirrostratus increasing but below 45 degrees elevation, H5<img src="images/h5.gif" alt="icon" />.</p>
+			 	</div>
+			 	<div class="feedback_incorrect">
+			 	<p>Incorrect. The photo shows cirrostratus increasing but below 45 degrees elevation, H5<img src="images/h5.gif" alt="icon" />.</p>
+			 	</div>
+			 </div>
+
+<div class="question" >
+             <div class="center"><img src="images/altostratus_M2_1.jpg" alt="photo" /></div>
+				<p>What type of cloud composes the majority of this state of the sky?</p>
+				<div class="answers">
+                <p><input id="q17a" name="answer" type="radio" value="correct" />
+                <label for="q17a">altostratus</label></p>
+
+                <p><input id="q17b" name="answer" type="radio" value="incorrect" />
+                <label for="q17b">cirrostratus</label></p>
+
+                <p><input id="q17c" name="answer" type="radio" value="incorrect" />
+                <label for="q17c">cirrocumulus</label></p>
+
+                <p><input id="q17d" name="answer" type="radio" value="incorrect" />
+                <label for="q17d">altocumulus</label></p>
+			 	</div>
+			 	
+			 	<div class="feedback_correct">
+			 	<p>Correct. This is thick altostratus, M2<img src="images/m2.gif" alt="icon" />. If it is raining, this cloud type can also be identified as nimbostratus.</p>
+			 	</div>
+			 	<div class="feedback_incorrect">
+			 	<p>Incorrect. This is thick altostratus, M2<img src="images/m2.gif" alt="icon" />. If it is raining, this cloud type can also be identified as nimbostratus.</p>
+			 	</div>
+			 </div>
+
+<div class="question" >
+             <div class="center"><img src="images/cirrostratus_inc_h6.jpg" alt="photo" /></div>
+				<p>What type of cloud composes the majority of this state of the sky?</p>
+				<div class="answers">
+                <p><input id="q18a" name="answer" type="radio" value="incorrect" />
+                <label for="q18a">altocumulus</label></p>
+
+                <p><input id="q18b" name="answer" type="radio" value="incorrect" />
+                <label for="q18b">cumulus</label></p>
+
+                <p><input id="q18c" name="answer" type="radio" value="incorrect" />
+                <label for="q18c">stratus</label></p>
+
+                <p><input id="q18d" name="answer" type="radio" value="correct" />
+                <label for="q18d">cirrostratus</label></p>
+			 	</div>
+			 	
+			 	<div class="feedback_correct">
+			 	<p>Correct. The photo shows cirrostratus increasing and above 45 degrees elevation, 
+H6<img src="images/h6.gif" alt="icon" />.</p>
+			 	</div>
+			 	<div class="feedback_incorrect">
+			 	<p>Incorrect. The photo shows cirrostratus increasing and above 45 degrees elevation, 
+H6<img src="images/h6.gif" alt="icon" />.</p>
+			 	</div>
+			 </div>
+
+<div class="question" >
+             <div class="center"><img src="images/altocumulus_m3.jpg" alt="photo" /></div>
+				<p>Which cloud type is depicted in the sky state shown here?</p>
+				<div class="answers">
+                <p><input id="q19a" name="answer" type="radio" value="incorrect" />
+                <label for="q19a">cirrostratus</label></p>
+
+                <p><input id="q19b" name="answer" type="radio" value="correct" />
+                <label for="q19b">altocumulus</label></p>
+
+                <p><input id="q19c" name="answer" type="radio" value="incorrect" />
+                <label for="q19c">stratus</label></p>
+
+                <p><input id="q19d" name="answer" type="radio" value="incorrect" />
+                <label for="q19d">cumulus</label></p>
+			 	</div>
+			 	
+			 	<div class="feedback_correct">
+			 	<p>Correct. The cloud shown here is semi-transparent altocumulus, M3<img src="images/m3.gif" alt="icon" />.</p>
+			 	</div>
+			 	<div class="feedback_incorrect">
+			 	<p>Incorrect. The cloud shown here is semi-transparent altocumulus, M3<img src="images/m3.gif" alt="icon" />.</p>
+			 	</div>
+			 </div>
+
+<div class="question" >
+             <div class="center"><img src="images/cirrostratus_h7_4.jpg" alt="photo" /></div>
+				<p>What type of cloud composes the majority of this state of the sky?</p>
+				<div class="answers">
+                <p><input id="q20a" name="answer" type="radio" value="incorrect" />
+                <label for="q20a">altocumulus</label></p>
+
+                <p><input id="q20b" name="answer" type="radio" value="incorrect" />
+                <label for="q20b">cumulus</label></p>
+
+                <p><input id="q20c" name="answer" type="radio" value="incorrect" />
+                <label for="q20c">stratus</label></p>
+
+                <p><input id="q20d" name="answer" type="radio" value="correct" />
+                <label for="q20d">cirrostratus</label></p>
+			 	</div>
+			 	
+			 	<div class="feedback_correct">
+			 	<p>Correct. The photo shows cirrostratus covering whole sky, H7<img src="images/h7.gif" alt="icon" />.</p>
+			 	</div>
+			 	<div class="feedback_incorrect">
+			 	<p>Incorrect. The photo shows cirrostratus covering whole sky, H7<img src="images/h7.gif" alt="icon" />.</p>
+			 	</div>
+			 </div>
+
+<div class="question" >
+             <div class="center"><img src="images/cumulonimbus_l9_3.jpg" alt="photo" /></div>
+				<p>What cloud type is most prominent in this state of the sky image?</p>
+				<div class="answers">
+                <p><input id="q21a" name="answer" type="radio" value="correct" />
+                <label for="q21a">cumulonimbus</label></p>
+
+                <p><input id="q21b" name="answer" type="radio" value="incorrect" />
+                <label for="q21b">cirrocumulus</label></p>
+
+                <p><input id="q21c" name="answer" type="radio" value="incorrect" />
+                <label for="q21c">stratocumulus</label></p>
+
+                <p><input id="q21d" name="answer" type="radio" value="incorrect" />
+                <label for="q21d">altocumulus</label></p>
+			 	</div>
+			 	
+			 	<div class="feedback_correct">
+			 	<p>Correct. This is a cumulonimbus cloud with a developed anvil, L9<img src="images/l9.gif" alt="icon" />.</p>
+			 	</div>
+			 	<div class="feedback_incorrect">
+			 	<p>Incorrect. This is a cumulonimbus cloud with a developed anvil, L9<img src="images/l9.gif" alt="icon" />.</p>
+			 	</div>
+			 </div>
+
+<div class="question" >
+             <div class="center"><img src="images/altocumulus_m4_1.jpg" alt="photo" /></div>
+				<p>Which cloud type is depicted in the sky state shown here?</p>
+				<div class="answers">
+                <p><input id="q22a" name="answer" type="radio" value="incorrect" />
+                <label for="q22a">stratocumulus</label></p>
+
+                <p><input id="q22b" name="answer" type="radio" value="correct" />
+                <label for="q22b">altocumulus lenticularis</label></p>
+
+                <p><input id="q22c" name="answer" type="radio" value="incorrect" />
+                <label for="q22c">altostratus</label></p>
+
+                <p><input id="q22d" name="answer" type="radio" value="incorrect" />
+                <label for="q22d">stratus</label></p>
+			 	</div>
+			 	
+			 	<div class="feedback_correct">
+			 	<p>Correct. These are altocumulus lenticularis (ACSL) or wave clouds, M4<img src="images/m4.gif" alt="icon" />.</p>
+			 	</div>
+			 	<div class="feedback_incorrect">
+			 	<p>Incorrect. These are altocumulus lenticularis (ACSL) or wave clouds, M4<img src="images/m4.gif" alt="icon" />.</p>
+			 	</div>
+			 </div>
+
+<div class="question" >
+             <div class="center"><img src="images/altocumulus_m6_1.jpg" alt="photo" /></div>
+				<p>Look at the clouds in the foreground and on the periphery of this cloud system. What type of cloud is present?</p>
+				<div class="answers">
+                <p><input id="q23a" name="answer" type="radio" value="incorrect" />
+                <label for="q23a">stratus</label></p>
+
+                <p><input id="q23b" name="answer" type="radio" value="incorrect" />
+                <label for="q23b">stratocumulus</label></p>
+
+                <p><input id="q23c" name="answer" type="radio" value="correct" />
+                <label for="q23c">altocumulus</label></p>
+
+                <p><input id="q23d" name="answer" type="radio" value="incorrect" />
+                <label for="q23d">cirrus</label></p>
+			 	</div>
+			 	
+			 	<div class="feedback_correct">
+			 	<p>Correct. These are altocumulus clouds spreading out of cumulus, M6 <img src="images/m6.gif" alt="icon" />.</p>
+			 	</div>
+			 	<div class="feedback_incorrect">
+			 	<p>Incorrect. These are altocumulus clouds spreading out of cumulus, M6 <img src="images/m6.gif" alt="icon" />.</p>
+			 	</div>
+			 </div>
+
+<div class="question" >
+             <div class="center"><img src="images/cumulonimbus_l3_1.jpg" alt="photo" /></div>
+				<p>What type of cloud is depicted in this image?</p>
+				<div class="answers">
+                <p><input id="q24a" name="answer" type="radio" value="incorrect" />
+                <label for="q24a">stratocumulus</label></p>
+
+                <p><input id="q24b" name="answer" type="radio" value="correct" />
+                <label for="q24b">cumulonimbus</label></p>
+
+                <p><input id="q24c" name="answer" type="radio" value="incorrect" />
+                <label for="q24c">nimbostratus</label></p>
+
+                <p><input id="q24d" name="answer" type="radio" value="incorrect" />
+                <label for="q24d">altocumulus</label></p>
+			 	</div>
+			 	
+			 	<div class="feedback_correct">
+			 	<p>Correct. This is cumulonimbus without an anvil, L3 <img src="images/l3.gif" alt="icon" />.</p>
+			 	</div>
+			 	<div class="feedback_incorrect">
+			 	<p>Incorrect. This is cumulonimbus without an anvil, L3 <img src="images/l3.gif" alt="icon" />.</p>
+			 	</div>
+			 </div>
+
+<div class="question" >
+             <div class="center"><img src="images/altocumulus_m9_1.jpg" alt="photo" /></div>
+				<p>What type of cloud composes the majority of the state of the sky photo shown here?</p>
+				<div class="answers">
+                <p><input id="q25a" name="answer" type="radio" value="incorrect" />
+                <label for="q25a">cirrostratus</label></p>
+
+                <p><input id="q25b" name="answer" type="radio" value="incorrect" />
+                <label for="q25b">cumulus</label></p>
+
+                <p><input id="q25c" name="answer" type="radio" value="correct" />
+                <label for="q25c">altocumulus</label></p>
+
+                <p><input id="q25d" name="answer" type="radio" value="incorrect" />
+                <label for="q25d">cumulonimbus</label></p>
+			 	</div>
+			 	
+			 	<div class="feedback_correct">
+			 	<p>Correct. These are altocumulus clouds in a chaotic sky where low, thick altocumulus and higher, thinner cloud layers can be present at several levels,  M9 <img src="images/m9.gif" alt="icon" />.</p>
+			 	</div>
+			 	<div class="feedback_incorrect">
+			 	<p>Incorrect. These are altocumulus clouds in a chaotic sky where low, thick altocumulus and higher, thinner cloud layers can be present at several levels,  M9 <img src="images/m9.gif" alt="icon" />.</p>
+			 	</div>
+			 </div>
+
+<div class="question" >
+             <div class="center"><img src="images/stratus_l7_1.jpg" alt="photo" /></div>
+				<p>Which cloud type is shown here?</p>
+				<div class="answers">
+                <p><input id="q26a" name="answer" type="radio" value="correct" />
+                <label for="q26a">stratus, cumulus</label></p>
+
+                <p><input id="q26b" name="answer" type="radio" value="incorrect" />
+                <label for="q26b">cirrus, cumulus</label></p>
+
+                <p><input id="q26c" name="answer" type="radio" value="incorrect" />
+                <label for="q26c">altocumulus</label></p>
+
+                <p><input id="q26d" name="answer" type="radio" value="incorrect" />
+                <label for="q26d">altostratus</label></p>
+			 	</div>
+			 	
+			 	<div class="feedback_correct">
+			 	<p>Correct. These are stratus fractus and/or cumulus fractus clouds. They occur beneath altostratus, nimbostratus, cumulonimbus, or cumulus clouds and are associated with bad weather. They are also known as scud clouds, L7 <img src="images/l7.gif" alt="icon" />.</p>
+			 	</div>
+			 	<div class="feedback_incorrect">
+			 	<p>Incorrect. These are stratus fractus and/or cumulus fractus clouds. They occur beneath altostratus, nimbostratus, cumulonimbus, or cumulus clouds and are associated with bad weather. They are also known as scud clouds, L7 <img src="images/l7.gif" alt="icon" />.</p>
+			 	</div>
+			 </div>
+
+<div class="question" >
+             <div class="center"><img src="images/cirrostratus_h8_1.jpg" alt="photo" /></div>
+				<p>What cloud composes the majority of this state of the sky?</p>
+				<div class="answers">
+                <p><input id="q27a" name="answer" type="radio" value="incorrect" />
+                <label for="q27a">stratus</label></p>
+
+                <p><input id="q27b" name="answer" type="radio" value="correct" />
+                <label for="q27b">cirrostratus</label></p>
+
+                <p><input id="q27c" name="answer" type="radio" value="incorrect" />
+                <label for="q27c">altocumulus</label></p>
+
+                <p><input id="q27d" name="answer" type="radio" value="incorrect" />
+                <label for="q27d">stratocumulus</label></p>
+			 	</div>
+			 	
+			 	<div class="feedback_correct">
+			 	<p>Correct. The cloud shown in the photo is cirrostratus, H8 <img src="images/h8.gif" alt="icon" />.</p>
+			 	</div>
+			 	<div class="feedback_incorrect">
+			 	<p>Incorrect. The cloud shown in the photo is cirrostratus, H8 <img src="images/h8.gif" alt="icon" />.</p>
+			 	</div>
+			 </div>
+
+
+			 <input class="next" type="button" value="Next Question" />
+		</div><!-- end content_1 -->
+		
+		<div id="content_2"></div>
+		<div id="content_3" style="visibility:hidden;">Order:</div>
+
+
+  </div>
+  <!-- end maincontent -->
+</body>
+</html>

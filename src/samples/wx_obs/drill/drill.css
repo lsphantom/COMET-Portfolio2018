@@ -1,0 +1,124 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* End reset html code */
+
+
+body {
+	background-color: #fff;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+}
+
+
+#maincontent {
+	/* float: left; */
+	/* width: 660px; */
+	max-width: 660px;
+	margin: auto;
+	padding: 20px 10px;
+	min-height: 450px;
+	height: auto;
+}
+
+#maincontent p {
+	font-size:13px;
+	margin: 5px 20px;
+	color:#333;
+}
+#content_1 {
+	background-color: #F9F9F9;
+	border: 1px solid #CCC;
+	padding-bottom: 10px;
+}
+.center {
+	margin: 20px auto;
+	text-align: center;
+}
+.answers {
+	margin: 10px auto;
+	text-align: center;
+}
+.answers p {
+	width: 120px;
+	margin: auto;
+	/* lt IE8 correction */
+	display: inline-block;
+	*display: inline;
+	zoom: 1;
+}
+
+
+.feedback_correct, .feedback_incorrect{
+	display: none;
+	margin-top: 10px;
+	margin-bottom: 0px;
+}
+
+.next{
+	display: none;
+	margin-right:30px;
+	margin-top: 20px;
+	padding: 4px 15px 5px 15px;
+	border-radius: 5px;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 13px;
+	cursor:pointer;
+	border: 1px solid #ddd;
+	background-color: #444;
+	box-shadow: 0 2px 4px #ccc;
+	color: #fff;
+	text-shadow: 0px 1px 1px #000;
+	float:right;
+}
+#content_2 {
+	clear: both;
+	float:right;
+	margin-right: 10px;
+	margin-top: 10px;
+}

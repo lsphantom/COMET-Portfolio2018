@@ -11,6 +11,15 @@ background: radial-gradient(ellipse at center, #ededed 0%,#f6f6f6 47%,#ffffff 10
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ededed', endColorstr='#ffffff',GradientType=1 );
 }
 
+a {
+  color: #0A98D2;
+}
+a:hover,
+a:focus,
+a:active {
+  color: #23527c;
+}
+
 .topbar {
   border-bottom: 1px solid #ddd;
   background-color: #fff;
@@ -20,11 +29,29 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ededed', end
 } */
 
 
-
 /* SQ added */
 
 .portfolio-navbar {
 	margin-bottom: 0px;
+}
+.portfolio-navigation p {
+	text-align: center;
+}
+
+
+.navigation-button {
+	width: 26px;
+	height: 26px;
+	padding-top: 3px;
+	padding-left: 2px;
+	display: inline-block;
+	background-color: #fff;
+	border-radius: 3em;
+	text-align: center;
+}
+.navigation-button span {
+	float: none;
+	margin: 0px auto;
 }
 
 /* END of SQ added */
@@ -55,11 +82,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ededed', end
   min-height: 300px;
   position: relative;
   margin-bottom: 20px;
-  background-image: url('../media/intro_image_d.jpg');
+  background-color: #444;
   background-attachment: fixed;
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.video-wrap {
+  text-align: center;
 }
 
 /* I think we need to create a parallax group div, so that the parallax image layer doesn't have the depth of the entire page. Perhaps the "Parallax sections" content here can help: https://keithclark.co.uk/articlaes/pure-css-parallax-websites/ */
@@ -228,6 +259,29 @@ a.card-thumb-wrap-link:hover .card-thumb-inner {
 }
 
 /* end add SQ */
+
+
+#comet-footer{
+	background-color: #DDDDDD;
+	text-align: center;
+}
+.back-to-top {
+	margin-top: 15px;
+}
+.social-box {
+	padding: 15px 0px;
+	text-align: center;
+}
+.social-icon {
+	font-size: 18px;
+	display: inline-block;
+	width: 32px;
+	height: 32px;
+	background-color: #fff;
+	border-radius: 3em;
+	margin-right: 4px;
+	padding-top: 4px;
+}
 
 .contact-container > h2 {
 	text-align: center;

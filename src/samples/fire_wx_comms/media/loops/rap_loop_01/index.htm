@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Data Looper</title>
+
+<link rel="stylesheet" type="text/css" href="src/looper.css">
+<link rel="stylesheet" type="text/css" href="src/bootstrap/css/bootstrap.min.css">
+<script type="text/javascript" src="src/jquery.min.js"></script>
+<script type="text/javascript" src="src/looper.js"></script>
+<script type="text/javascript">
+// Set looper Max-Width (in Pixels)
+var loopMaxWidth = 850; // Use actual image width!
+
+$(document).ready(function () {
+	// Looper Settings
+	$('.looper').looper({
+		navigation			: true, // Display the navigation controls
+      	slide_captions		: false, // Display the slide info
+      	slide_counter		: true, // Display the slide counter
+      	speed_controls		: true, // Display the speed controls
+      	forward_backward	: true, // Display the step controls
+      	autoplay			: true  // Set looper to autoplay
+	});
+});
+</script>
+</head>
+
+<body>
+<div id="preload-wrapper" class="container-fluid">
+  <div class="looper">
+    
+  <img src="rap_loop_01.jpg" alt="RAP composite reflectivity forecasts, valid from 00 UTC through 01 UTC on August 12, 2014." class="img-responsive" />
+  <img src="rap_loop_02.jpg" alt="" class="img-responsive" />
+    
+   </div><!-- End Looper -->
+   
+</div><!-- End Preload Wrapper -->
+
+</body>
+</html>
